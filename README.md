@@ -17,5 +17,5 @@ lesen eines öffentlichen Keyservers.
 
 ### Grundidee
 User meldet sich auf einer Weboberfläche an mittels EMAIL und PWD.
-	* Möglichkeiten:
-		* Anschließend kann der User anderen existierenden Usern eine E2EE Textnachricht senden.
+  * Möglichkeiten:
+    * Anschließend kann der User anderen existierenden Usern eine E2EE Textnachricht senden.
