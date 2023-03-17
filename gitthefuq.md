@@ -1,4 +1,4 @@
-# what we *don't* know about git
+# what we **don't** know about git
 
 * HEAD???
 * refs
