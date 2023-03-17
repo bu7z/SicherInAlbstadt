@@ -1,4 +1,8 @@
 # SicherInAlbstadt
 sicherer Nachrichtenaustausch über das Internet
 
-### Kapitel 1
+## Konzept
+### Vorgehensweise
+* Schritt 1
+* Schritt 2
+	* Schritt 3
