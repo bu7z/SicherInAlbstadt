@@ -9,3 +9,4 @@
 * rebase?
 * branches???
 * checkout branches and undo shit?!
+* delete branches? local and remote
