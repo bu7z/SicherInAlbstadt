@@ -1,3 +1,5 @@
+<img src="https://img.shields.io/badge/coded%20by%20human-100%25-brightgreen">
+
 # SicherInAlbstadt
 Sicherer Nachrichtenaustausch über das Internet
 
