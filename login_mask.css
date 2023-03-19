@@ -1,0 +1,67 @@
+/*
+creme:				#f1f4c6
+sand:					#d6d0b8
+light-brown:	#aaa6a4
+dark-brown:		#837d7d
+*/
+
+html, body{
+	height: 100%;
+	margin: 0px;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	font-family: sans-serif;
+}
+
+form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+input {
+	margin: 3%;
+	padding: 3%;
+}
+
+.box {
+	text-align: center;
+	background-color: #d6d0b8;
+	width: 20%;
+	height: 30%;
+	border-radius: 4%;
+}
+
+@media only screen and (max-width: 1200px) {
+	.box {
+		width: 30%;
+		height: 40%;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.box {
+		width: 40%;
+		height: 50%;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.box {
+		width: 50%;
+		height: 60%;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.box {
+		width: 80%;
+		height: 40%;
+	}
+}
