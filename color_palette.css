@@ -1,34 +1,35 @@
 html, body {
 	height: 100%;
+	font-family: sans-serif;
 }
 
 #color_1 {
 	width: 100%;
-	height: 20%;
+	height: fit-content;
 }
 
 #color_2 {
-	background-color: #f1f4c6;
+	background-color: #80ED99;
 	width: 100%;
-	height: 20%;
+	height: fit-content;
 }
 
 #color_3 {
-	background-color: #d6d0b8;
+	background-color: #57CC99;
 	width: 100%;
-	height: 20%;
+	height: fit-content;
 }
 
 #color_4 {
-	background-color: #aaa6a4;
+	background-color: #38A3A5;
 	width: 100%;
-	height: 20%;
+	height: fit-content;
 }
 
 #color_5 {
-	background-color: #837d7d;
+	background-color: #22577A;
 	width: 100%;
-	height: 20%;
+	height: fit-content;
 }
 
 .text_white {
@@ -40,3 +41,18 @@ html, body {
 	margin: 0px;
 	color: black;
 }
+.text_darkBlue{
+	color: #22577A;
+}
+
+.text_teal{
+	color: #80ED99;
+}
+
+.text_green{
+	color: #38A3A5;
+}
+
+.text_mint {
+	color: #57CC99
+}                       
