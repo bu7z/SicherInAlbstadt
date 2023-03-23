@@ -1,8 +1,8 @@
 # what we **don't** know about git
 
 * HEAD???
- * isch halt so ein ding nh
- * machscht halt git log und so nh
+** isch halt so ein ding nh
+** machscht halt git log und so nh
 * refs
 * pull
 * push
