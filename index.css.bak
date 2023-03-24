@@ -1,0 +1,52 @@
+html,body{
+    background-color: #203A4C;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+img{
+    height: 90%;
+    width: auto;
+    position: center;
+}
+  
+.flex-container {
+    display: flex;
+    height: 100%;
+}
+
+.flex-child {
+    background-color:#203A4C;
+    flex: 2 1 auto;
+    padding: 1%;
+    border: 2px solid yellow;
+    ;
+}  
+.flex-child:nth-child(1) {
+    background-image: url("img/SicherInAlbstadt-Logo.svg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    
+
+} 
+
+.flex-child:nth-child(2) {
+    width: 28%;
+} 
+
+
+footer{
+    background-color: #22577A;
+
+    
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    padding: 1%;
+    position: fixed;
+    bottom: 0;
+}
