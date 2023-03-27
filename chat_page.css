@@ -1,0 +1,87 @@
+/*
+  color 1: 80ED99
+  color 2: 57CC99
+  color 3: 38A3A5
+  color 4: 22577A
+*/
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0px;
+  background-color: #203A4C;
+}
+
+header {
+  width: 95%;
+  height: 15%;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 1%;
+}
+
+.header_nav {
+  width: 10%;
+  height: 100%;
+  background-color: #22577A;
+  margin-left: 1%;
+  border-radius: 20%;
+}
+
+.header_nav:hover {
+  background-color: #38A3A5;
+}
+
+#nav_home {
+  margin-right: 5%;
+  margin-left: 0px;
+  background-image: url("./img/SicherInAlbstadt-Logo.svg");
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#nav_chat {
+  background-image: url("./icons/chat.svg");
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#nav_how_it_works {
+  background-image: url("./icons/lightblulb.svg");
+  background-size: 40%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#nav_donate {
+  background-image: url("./icons/present.svg");
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#nav_impressum {
+  background-image: url("./icons/location.svg");
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#nav_logout {
+  margin-left: auto;
+  background-color: #203A4C;
+  background-image: url("./img/lock_closed.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#nav_logout:hover {
+  background-image: url("./img/lock_closed_light.svg");
+}
