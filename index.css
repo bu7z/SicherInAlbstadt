@@ -18,10 +18,8 @@ html, body{
 }
 
 .child{
-    
     width: 65%;
     background-color: #203A4C;
-    
 }
 
 .child:nth-child(1){
@@ -29,18 +27,16 @@ html, body{
     width: 35%;
     flex: 1;
     background-image: url(img/SicherInAlbstadt-Logo.svg);
-    /*background-color: #22577A;
-    opacity: 0.8;*/
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
 }
 
+
 .heading{
     background-color: rgba(34, 87, 122,0.8);
     position: absolute;
     text-align: center;
-    height: 93%;
     width: 35%;
     padding-top: 15%;
 }
@@ -49,24 +45,57 @@ h1{
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 450%;
+    padding: 2% 0 70% 0;
 }
 
 
 .lock{
-    margin: 30%;
-
-
     background-image: url(img/lock_open.svg);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    margin-top: 5%;
-    height: 100%;
-    /* for ze battons */
-    text-align: center;
-    padding-top: 0;
-
+    margin-bottom: 3%;
+    margin-top: 3%;
 }
+
+button{
+    padding: 0.5%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    width: 9%;
+
+    font-size: medium;
+    cursor: pointer;
+    color: white;
+    border: solid #80ED99 2px;
+    background-color: transparent;
+    border-radius: 10px;
+    /* for ze position*/
+    margin: 0;
+    position: absolute;
+    top: 30%;
+    left: 63%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+button:hover{
+    border: 2px solid transparent;
+    background-color: #80ED99;
+    transition: 1s;
+}
+
+
+#reg{
+    top: 37%;
+    border: solid #57CC99 2px;
+}
+
+#reg:hover{
+    border: 2px solid transparent;
+    background-color: #57CC99;
+    transition: 1s;
+}
+
 
 footer {
     color: white;
