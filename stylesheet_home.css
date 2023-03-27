@@ -27,7 +27,11 @@ body{
     color: white;
     font-size: larger;
     border-radius: 17px;
-    
+    position: absolute;
+    top: 80%;
+    left: 11%;
+    width: 10%;
+    height: 40px;
 }
 
 .imgsia{
@@ -87,8 +91,6 @@ p{
 
 .btnmiddle{
     width: 266px;
-    max-width: 266px;
-    min-width: 132px;
     height: 177px;
     border-radius: 17px;
     background: #38A3A5;
