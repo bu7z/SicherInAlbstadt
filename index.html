@@ -14,11 +14,28 @@
                 <h1>Sicher<br>InAlbstadt</h1>
             </div>
         <div class="child lock">
-                <button id="login">login</button>
-                <button id="reg">registrieren</button>
+                <button class="logreg" onclick="showForm()" id="login">login</button>
+
+                <button class="logreg" id="reg">registrieren</button>
+
+                <div class="logForm">
+                    <form action="" method="POST">
+                        <h3>login</h3>
+                        <input type="text" placeholder="Enter Username" name="uname" required><br>
+                        <label for="uname"><b>Username</b></label><br>
+
+                        
+                        <input type="password" placeholder="Enter Password" name="psw" required><br>
+                        <label for="psw"><b>Password</b></label><br>
+        
+                        <button type="submit">Login</button>
+                    </form>
+                </div>
             
         </div>
     </div> 
     <footer><p>&copy; 2023 Studententinitiative Albstadt</p></footer>
+
+    <script src="index.js"></script>
 </body>
 </html>
