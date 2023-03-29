@@ -31,6 +31,9 @@ header {
   background-color: #22577A;
   margin-left: 1%;
   border-radius: 20%;
+  transition: 0.3s;
+  text-align: center;
+  color: white;
 }
 
 .header_nav:hover {
@@ -96,4 +99,8 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#test {
+  margin-top: 20%;
 }
