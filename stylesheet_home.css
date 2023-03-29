@@ -1,0 +1,125 @@
+
+body{
+    background-color: #082c44;
+    margin: 0;
+}
+
+.lock{
+    float: right;
+    margin-top: 15px;
+    left: 90%;
+    
+}
+
+.left{
+    float: left;
+    width: 30%;
+    height: 800px;
+    background-color: #22577A;
+    border-radius: 27px;
+    margin: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: larger;
+    color: white;
+}
+
+.btn_abrufen{
+    background-color: #80ED99;
+    border: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: larger;
+    border-radius: 17px;
+    position: absolute;
+    top: 80%;
+    left: 11%;
+    width: 10%;
+    height: 40px;
+}
+
+.imgsia{
+    opacity: 0.3;
+    position: absolute;
+    top: 25%;
+    left: 5.5%;
+}
+
+.fragen{
+    position: absolute;
+    width: 60%;
+    height: 150px;
+    left: 32%;
+    top: 15px;
+
+    background: #22577A;
+    border-radius: 27px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    color: white;
+}
+
+p{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.buttons{
+    position: absolute;
+    left: 45%;
+    right: 20%;
+    top: 25%;
+    bottom: 25%;
+}
+
+.btn1{
+    position: absolute;
+    right:    0;
+    bottom:   0;
+}
+
+.btn2{
+    position: absolute;
+    left:    0;
+    bottom:   0;
+}
+
+.btn3{
+    position: absolute;
+    left:    0;
+    top:   0;
+}
+
+.btn4{
+    position: absolute;
+    right:    0;
+    top:   0;
+}
+
+.btnmiddle{
+    width: 266px;
+    height: 177px;
+    border-radius: 17px;
+    background: #38A3A5;
+    border: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: larger;
+}
+
+button:hover{
+    border: 5px solid #22577A;
+    cursor: pointer;
+}
+
+footer{
+    background-color: #22577A;
+    width: 100%;
+    
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: center;
+    height: auto;
+    padding: 1%;
+    position: fixed;
+    bottom: 0;
+}
