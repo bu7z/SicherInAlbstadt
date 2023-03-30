@@ -1,52 +1,193 @@
-html,body{
+* {
+	margin:0;
+	padding:0;
+	border:0;
+}
+
+html, body{
+    height: 100%;
     background-color: #203A4C;
-    margin: 0;
-    padding: 0;
-    height: 100%;
 }
 
-img{
-    height: 90%;
-    width: auto;
-    position: center;
-}
-  
-.flex-container {
+
+
+.parent {
     display: flex;
-    height: 100%;
+    flex-direction: row;
+    height: 93%;
 }
 
-.flex-child {
-    background-color:#203A4C;
-    flex: 2 1 auto;
-    padding: 1%;
-    border: 2px solid yellow;
-    ;
-}  
-.flex-child:nth-child(1) {
-    background-image: url("img/SicherInAlbstadt-Logo.svg");
+.child{
+    width: 65%;
+    background-color: #203A4C;
+}
+
+.child:nth-child(1){
+    float: left;
+    width: 35%;
+    flex: 1;
+    background-image: url(img/SicherInAlbstadt-Logo.svg);
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-size: contain;
     background-position: center;
-    
-
-} 
-
-.flex-child:nth-child(2) {
-    width: 28%;
-} 
+}
 
 
-footer{
-    background-color: #22577A;
+.heading{
+    background-color: rgba(34, 87, 122,0.8);
+    position: absolute;
+    text-align: center;
+    width: 35%;
+    padding-top: 15%;
+}
 
-    
+h1{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 450%;
+    padding: 2% 0 70% 0;
+}
+
+
+.lock{
+    background-image: url(img/lock_open.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 3%;
+    margin-top: 3%;
+}
+
+.logreg{
+    padding: 0.5%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    width: 9%;
+
+    font-size: medium;
+    cursor: pointer;
+    color: white;
+    border: solid #80ED99 2px;
+    background-color: transparent;
+    border-radius: 10px;
+    /* for ze position*/
+    margin: 0;
+    position: absolute;
+    top: 30%;
+    left: 63%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.logreg:hover{
+    border: 2px solid transparent;
+    background-color: #80ED99;
+    transition: 1s;
+}
+
+
+.logForm{
+    transform: scale(0);
+    position: absolute;
+    top: 20%;
+    left: 58%;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
+    padding: 0 7% 0 4%;
+    background-color: rgba(115, 217, 148, 0.93);
+    border-radius: 10px;
+}
+
+.logForm h3{
     text-align: center;
-    width: 100%;
-    height: auto;
-    padding: 1%;
-    position: fixed;
+    padding: 10% 0 20% 30%;
+    font-size: 2em;
+}
+
+.logForm button{
+    margin: 80% 0 25% 40%;
+    padding: 5% 20% 5% 20%;
+    border-radius: 5px;
+    background-color: #38A3A5;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.logForm button:hover{
+    opacity: 0.7;
+    background-color: #22577A;
+    transition: 1s;
+}
+
+
+.logForm input{
+    margin: 30% 0 5% 0;
+}
+#regF{
+    left: 57%;
+    background-color: #38A3A5;
+}
+
+#regF h3{
+    padding-left: 12%;
+}
+
+#regF button{
+    background-color: #80ED99;
+    margin-left: 26%;
+}
+
+#regF button:hover{
+    background-color: #80ED99;
+}
+
+#regF input{
+    margin-top: 5%;
+}
+
+.logForm input:focus{
+    outline: none !important;
+    scale: 1.5;
+    transition: 1s;
+}
+
+.logForm label{
+    font-weight: lighter;
+}
+
+#regF input[type=text], #regF input[type=password]{
+    border-bottom: 2px solid #80ED99;
+}
+
+input[type=text], input[type=password] {
+    border-bottom: 2px solid #22577A;
+    background-color: transparent;
+    color: white;
+    width: 130%;
+    height: 2rem;
+}
+
+
+#reg{
+    top: 37%;
+    border: solid #57CC99 2px;
+}
+
+#reg:hover{
+    border: 2px solid transparent;
+    background-color: #57CC99;
+    transition: 1s;
+}
+
+
+footer {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #22577A;
+    position: absolute;
+    text-align: center;
+    padding-top: 1%;
     bottom: 0;
+    width: 100%;
+    height: 5%;
 }
