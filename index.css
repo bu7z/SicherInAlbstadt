@@ -104,8 +104,7 @@ h1{
 }
 
 .logForm button{
-    margin: 80% 0 25% 0;
-    margin-left: 40%;
+    margin: 80% 0 25% 40%;
     padding: 5% 20% 5% 20%;
     border-radius: 5px;
     background-color: #38A3A5;
@@ -124,11 +123,40 @@ h1{
 .logForm input{
     margin: 30% 0 5% 0;
 }
+#regF{
+    left: 57%;
+    background-color: #38A3A5;
+}
+
+#regF h3{
+    padding-left: 12%;
+}
+
+#regF button{
+    background-color: #80ED99;
+    margin-left: 26%;
+}
+
+#regF button:hover{
+    background-color: #80ED99;
+}
+
+#regF input{
+    margin-top: 5%;
+}
 
 .logForm input:focus{
     outline: none !important;
     scale: 1.5;
     transition: 1s;
+}
+
+.logForm label{
+    font-weight: lighter;
+}
+
+#regF input[type=text], #regF input[type=password]{
+    border-bottom: 2px solid #80ED99;
 }
 
 input[type=text], input[type=password] {

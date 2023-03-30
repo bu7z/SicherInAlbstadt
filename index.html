@@ -16,7 +16,7 @@
         <div class="child lock" onclick="hideForm(this)">
                 <button class="logreg" onclick="showForm(this)" id="login">login</button>
 
-                <button class="logreg" id="reg">registrieren</button>
+                <button class="logreg" onclick="showForm(this)"  id="reg">registrieren</button>
 
                 <div class="logForm" id="logF" onclick="showForm(this)">
                     <form action="" method="POST">
@@ -29,6 +29,24 @@
                         <label for="psw"><b>Password</b></label><br>
         
                         <button type="submit">Login</button>
+                    </form>
+                </div>
+
+                <div class="logForm" id="regF" onclick="showForm(this)">
+                    <form action="" method="POST">
+                        <h3>registrieren</h3>
+                        <input type="text" placeholder="Enter Username" name="uname" required><br>
+                        <label for="uname"><b>Username</b></label><br>
+                        <input type="text" placeholder="Enter Fullname" name="fullname" required><br>
+                        <label for="fullname"><b>Vor- Nachname</b></label><br>
+
+                        
+                        <input type="password" placeholder="Enter Password" name="psw" id="pwd" required><br>
+                        <label for="psw"><b>Password</b></label><br>
+                        <input type="password" placeholder="Retype Password" name="pswConf" id="pwdConf" required><br>
+                        <label for="pswConf"><b>Check Password</b></label><br>
+        
+                        <button type="submit">registrieren</button>
                     </form>
                 </div>
             
