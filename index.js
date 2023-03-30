@@ -22,12 +22,10 @@ function hideForm(e){
         toggle = 0;
         return;    
     } else if(e.id == "logF"){
-        console.log("dontHidePlz");
         return;
     } else{
         document.getElementById("logF").style.transform = "scale(0)";
         document.getElementById("logF").style.transition = "1s";
-        console.log("test");
     }
     
 }

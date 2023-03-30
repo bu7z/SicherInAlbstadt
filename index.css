@@ -93,14 +93,14 @@ h1{
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     padding: 0 7% 0 4%;
-    /*background-color: rgba(128, 237, 153, 0.87);*/
-    background-color: rgba(115, 217, 148, 0.87);
+    background-color: rgba(115, 217, 148, 0.93);
     border-radius: 10px;
 }
 
 .logForm h3{
     text-align: center;
     padding: 10% 0 20% 30%;
+    font-size: 2em;
 }
 
 .logForm button{
@@ -108,7 +108,7 @@ h1{
     margin-left: 40%;
     padding: 5% 20% 5% 20%;
     border-radius: 5px;
-    background-color: #22577A;
+    background-color: #38A3A5;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -116,6 +116,7 @@ h1{
 
 .logForm button:hover{
     opacity: 0.7;
+    background-color: #22577A;
     transition: 1s;
 }
 
@@ -133,8 +134,9 @@ h1{
 input[type=text], input[type=password] {
     border-bottom: 2px solid #22577A;
     background-color: transparent;
-    color: #22577A;
+    color: white;
     width: 130%;
+    height: 2rem;
 }
 
 
