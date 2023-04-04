@@ -8,7 +8,17 @@ body{
     float: right;
     margin-top: 15px;
     left: 90%;
-    
+}
+
+.btn_lock{
+    background-color: #082c44;
+    border-radius: 17px;
+    border: 0px;
+}
+
+.btn_lock:hover{
+    border: 3px solid #38A3A5;
+    cursor: pointer;
 }
 
 .left{
@@ -40,15 +50,45 @@ body{
 .imgsia{
     opacity: 0.3;
     position: absolute;
-    top: 25%;
+    top: 20%;
     left: 5.5%;
+    background-size: contain;
 }
+
+.siapic{
+    max-width: 46%;
+    height: auto;
+}
+
+.anz_nachrichten{
+    position: absolute;
+    top: 67%;
+    left: 7.5%;
+    font-size: larger;
+}
+
+.animation{
+    overflow: hidden;
+    height:1.1em;
+    word-wrap: break-word;
+    white-space: nowrap;
+    animation: typing 5s steps(48) forwards;
+}
+
+@keyframes typing {
+    from {
+       width: 0;
+    }
+    to {
+       width: 48ch;
+    }
+ }
 
 .fragen{
     position: absolute;
-    width: 60%;
+    width: 59.2%;
     height: 150px;
-    left: 32%;
+    left: 32.2%;
     top: 15px;
 
     background: #22577A;
@@ -58,9 +98,15 @@ body{
     color: white;
 }
 
-p{
+.text{
     text-align: center;
-    margin-top: 50px;
+    margin-top: 4.5%;
+}
+
+.text2{
+    text-align: center;
+    margin-top: 11%;
+    font-size: larger;
 }
 
 .buttons{
@@ -97,7 +143,7 @@ p{
 
 .btnmiddle{
     width: 266px;
-    height: 177px;
+    max-height: 177px;
     border-radius: 17px;
     background: #38A3A5;
     border: 0px;
@@ -105,9 +151,23 @@ p{
     color: white;
     font-size: larger;
 }
+  
+
+.btn_p{
+    text-align: center;
+}
+
+.icon_btn{
+    margin-top: 6%;
+}
 
 button:hover{
     border: 5px solid #22577A;
+    cursor: pointer;
+}
+
+.btn_abrufen:hover{
+    border: 5px solid #38A3A5;
     cursor: pointer;
 }
 
