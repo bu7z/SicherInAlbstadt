@@ -5,6 +5,10 @@
   color 4: 22577A
 */
 
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   height: 100%;
 }
@@ -17,7 +21,7 @@ body {
 
 header {
   width: 95%;
-  height: 10%;
+  height: 12%;
   display: flex;
   align-items: center;
   margin-left: auto;
@@ -90,7 +94,59 @@ header {
   background-image: url("./img/lock_closed_light.svg");
 }
 
+main {
+  width: 100%;
+  height: 80%;
+  border: solid;
+  border-color: blue;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 
+  margin-top: 1%;
+}
+
+#chat_list {
+  width: 20%;
+  height: 100%;
+  border: solid;
+  border-color: red;
+}
+
+.chat_list_element {
+  width: 100%;
+  height: 10%;
+  border-bottom: solid;
+  border-color: red;
+}
+
+#chat {
+  width: 70%;
+  height: 100%;
+  border: solid;
+  border-color: green;
+}
+
+#chat_header {
+  width: 100%;
+  height: 20%;
+  border-bottom: solid;
+  border-color: green;
+}
+
+#chat_main {
+  width: 100%;
+  height: 60%;
+  border-bottom: solid;
+  border-color: green;
+}
+
+#chat_input {
+  width: 100%;
+  height: 20%;
+  border-bottom: solid;
+  border-color: green;
+}
 
 footer {
   width: 100%;
