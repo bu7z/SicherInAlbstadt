@@ -40,7 +40,7 @@ header {
   background-color: #38A3A5;
 }
 
-#nav_home {
+#header_home {
   margin-right: 5%;
   margin-left: 0px;
   background-image: url("./img/SicherInAlbstadt-Logo.svg");
@@ -49,35 +49,35 @@ header {
   background-position: center;
 }
 
-#nav_chat {
+#header_chat {
   background-image: url("./icons/chat.svg");
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
 }
 
-#nav_how_it_works {
+#header_how_it_works {
   background-image: url("./icons/lightblulb.svg");
   background-size: 40%;
   background-repeat: no-repeat;
   background-position: center;
 }
 
-#nav_donate {
+#header_donate {
   background-image: url("./icons/present.svg");
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
 }
 
-#nav_impressum {
+#header_impressum {
   background-image: url("./icons/location.svg");
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
 }
 
-#nav_logout {
+#header_logout {
   margin-left: auto;
   background-color: #203A4C;
   background-image: url("./img/lock_closed.svg");
@@ -86,9 +86,11 @@ header {
   background-position: center;
 }
 
-#nav_logout:hover {
+#header_logout:hover {
   background-image: url("./img/lock_closed_light.svg");
 }
+
+
 
 footer {
   width: 100%;
