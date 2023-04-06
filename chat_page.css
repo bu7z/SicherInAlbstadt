@@ -111,6 +111,7 @@ main {
   height: 100%;
   border: solid;
   border-color: red;
+  color: white;
 }
 
 .chat_list_element {
@@ -118,6 +119,9 @@ main {
   height: 10%;
   border-bottom: solid;
   border-color: red;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 #chat {
@@ -132,6 +136,21 @@ main {
   height: 20%;
   border-bottom: solid;
   border-color: green;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+}
+
+#chat_header_name {
+  font-size: 200%;
+  margin-left: 1%;
+}
+
+#chat_header_last_seen {
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: 1%;
 }
 
 #chat_main {
@@ -146,6 +165,19 @@ main {
   height: 20%;
   border-bottom: solid;
   border-color: green;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#chat_input_field {
+  width: 80%;
+  height: 90%;
+}
+
+#chat_input_button {
+  width: 10%;
+  height: 70%;
 }
 
 footer {
