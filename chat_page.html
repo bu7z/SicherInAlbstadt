@@ -9,7 +9,7 @@
 	<body>
     <header>
       <div id="header_home" class="header_nav"></div>
-      <div id="header_chat" class="header_nav" onmouseover="toggle_visibility(this)" onmouseleave="toggle_visibility(this)"><div id="test">Chat</div></div>
+      <div id="header_chat" class="header_nav" onmouseover="toggle_visibility(this)" onmouseleave="toggle_visibility(this)"><div id="header_chat_text">Chat</div></div>
       <div id="header_how_it_works" class="header_nav"></div>
       <div id="header_donate" class="header_nav"></div>
       <div id="header_impressum" class="header_nav"></div>
@@ -43,10 +43,11 @@
 					<div id="chat_header_last_seen">last seen: yesterday</div>
 				</div>
 				<div id="chat_main">
+					<div id="chat_bubble"></div>
 				</div>
 				<div id="chat_input">
 					<textarea id="chat_input_field" placeholder="type a message..."></textarea>
-					<button id="chat_input_button" type="button">send</button>
+					<button id="chat_input_button" type="button" onclick="click_button(this)">send</button>
 				</div>
 			</div>
     </main>

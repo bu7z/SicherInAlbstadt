@@ -9,4 +9,9 @@ function toggle_visibility(element) {
   }
 }
 
-document.getElementById("test").style.display = "none";
+function click_button(element) {
+  const text = element.value;
+  console.log(text);
+}
+
+document.getElementById("header_chat_text").style.display = "none";
