@@ -17,6 +17,7 @@ body {
   margin: 0px;
   background-color: #203A4C;
   font-family: sans-serif;
+  color: white;
 }
 
 header {
@@ -34,10 +35,9 @@ header {
   height: 100%;
   background-color: #22577A;
   margin-left: 1%;
-  border-radius: 20%;
+  border-radius: 20px;
   transition: 0.3s;
   text-align: center;
-  color: white;
 }
 
 .header_nav:hover {
@@ -115,7 +115,6 @@ main {
   height: 100%;
   border: solid;
   border-color: red;
-  color: white;
 }
 
 #chat_list_header {
@@ -127,6 +126,7 @@ main {
   width: 100%;
   height: 10%;
   border-bottom: solid;
+  border-radius: 20px;
   border-color: red;
   display: flex;
   justify-content: space-between;
@@ -157,7 +157,6 @@ main {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  color: white;
 }
 
 #chat_header_name {
@@ -176,11 +175,37 @@ main {
   height: 60%;
   border-bottom: solid;
   border-color: magenta;
+  overflow-y: scroll;
 }
 
-#chat_bubble {
-  border: solid;
-  border-color: yellow;
+.chat_bubble {
+  /*border: solid;
+  border-color: yellow;*/
+  width: 100%;
+}
+
+#chat_bubble_sent div {
+  width: 40%;
+  margin-left: auto;
+  margin-right: 2%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+
+  background-color: #22577A;
+  border-radius: 20px;
+  padding: 2%;
+}
+
+#chat_bubble_received div {
+  width: 40%;
+  margin-right: auto;
+  margin-left: 2%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+
+  background-color: #22577A;
+  border-radius: 20px;
+  padding: 2%;
 }
 
 #chat_input {
@@ -196,12 +221,25 @@ main {
 #chat_input_field {
   width: 80%;
   height: 90%;
+  padding: 2%;
   resize: none;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  color: white;
+  background-color: #22577A;
 }
 
 #chat_input_button {
   width: 10%;
   height: 70%;
+  border: none;
+  border-radius: 20px;
+  background-color: #22577A;
+}
+
+#chat_input_button:hover {
+  background-color: #38A3A5;
 }
 
 footer {
