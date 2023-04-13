@@ -184,7 +184,7 @@ main {
   width: 100%;
 }
 
-#chat_bubble_sent div {
+.chat_bubble_sent div {
   width: 40%;
   margin-left: auto;
   margin-right: 2%;
@@ -196,7 +196,7 @@ main {
   padding: 2%;
 }
 
-#chat_bubble_received div {
+.chat_bubble_received div {
   width: 40%;
   margin-right: auto;
   margin-left: 2%;
@@ -236,6 +236,7 @@ main {
   border: none;
   border-radius: 20px;
   background-color: #22577A;
+  color: white;
 }
 
 #chat_input_button:hover {
