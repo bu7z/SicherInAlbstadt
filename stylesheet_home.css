@@ -15,11 +15,6 @@ body{
     border: 0px;
 }
 
-.btn_lock:hover{
-    border: 3px solid #38A3A5;
-    cursor: pointer;
-}
-
 .left{
     float: left;
     width: 30%;
@@ -64,7 +59,6 @@ body{
 }
 
 .anz_nachrichten{
-    
     position: relative;
     top: 60%;
     font-size: larger;
@@ -97,7 +91,6 @@ body{
     height: 150px;
     left: 32.2%;
     top: 15px;
-
     background: #22577A;
     border-radius: 27px;
     font-family: Arial, Helvetica, sans-serif;
@@ -171,9 +164,22 @@ body{
     margin-top: 6%;
 }
 
-button:hover{
-    border: 5px solid #22577A;
+.btnmiddle:hover{
+    scale: 1.1;
     cursor: pointer;
+    transition: 1s;
+}
+
+.btnmiddle2:hover{
+    scale: 1.1;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.btn_lock:hover{
+    scale: 1.1;
+    cursor: pointer;
+    transition: 1s;
 }
 
 .btn_abrufen:hover{
@@ -184,7 +190,6 @@ button:hover{
 footer{
     background-color: #22577A;
     width: 100%;
-    
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     text-align: center;
