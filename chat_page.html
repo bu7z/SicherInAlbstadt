@@ -59,9 +59,10 @@
 					<div class="chat_bubble chat_bubble_received"><div>Ich bin eine Chat-Bubble und das hier ist ein Nachrichten-Text</div></div>
 					<div class="chat_bubble chat_bubble_received"><div>Ich bin eine Chat-Bubble und das hier ist ein Nachrichten-Text</div></div>
 					<div class="chat_bubble chat_bubble_sent"><div>Der scheiß hier ist actually richtig gut geworden ey fuck me silly!</div></div>
+					<div id="div_error_message">error: empty message; enter something</div>
 				</div>
 				<div id="chat_input">
-					<textarea id="chat_input_field" placeholder="type a message..."></textarea>
+					<textarea id="chat_input_field" placeholder="type a message..." onfocus="reset_error_message()"></textarea>
 					<button id="chat_input_button" type="button" onclick="click_button(this)">send</button>
 				</div>
 			</div>

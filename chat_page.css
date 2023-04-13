@@ -185,7 +185,9 @@ main {
 }
 
 .chat_bubble_sent div {
-  width: 40%;
+  width: fit-content;
+  max-width: 40%;
+  overflow-wrap: break-word;
   margin-left: auto;
   margin-right: 2%;
   margin-top: 1%;
@@ -197,7 +199,9 @@ main {
 }
 
 .chat_bubble_received div {
-  width: 40%;
+  width: fit-content;
+  max-width: 40%;
+  overflow-wrap: break-word;
   margin-right: auto;
   margin-left: 2%;
   margin-top: 1%;
@@ -206,6 +210,13 @@ main {
   background-color: #22577A;
   border-radius: 20px;
   padding: 2%;
+}
+
+#div_error_message {
+  color: red;
+  text-align: center;
+  position: sticky;
+  bottom: 0;
 }
 
 #chat_input {
