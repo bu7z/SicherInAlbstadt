@@ -1,0 +1,119 @@
+/*
+  color 1: 80ED99
+  color 2: 57CC99
+  color 3: 38A3A5
+  color 4: 22577A
+*/
+
+* {
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+  }
+  
+  body {
+    margin: 0px;
+    background-color: #203A4C;
+    font-family: sans-serif;
+  }
+  
+  header {
+    width: 95%;
+    height: 12%;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1%;
+  }
+  
+  .header_nav {
+    width: 8%;
+    height: 100%;
+    background-color: #22577A;
+    margin-left: 1%;
+    border-radius: 20%;
+    transition: 0.3s;
+    text-align: center;
+    color: white;
+  }
+  
+  .header_nav:hover {
+    background-color: #38A3A5;
+  }
+  
+  #header_home {
+    margin-right: 5%;
+    margin-left: 0px;
+    background-image: url("./img/SicherInAlbstadt-Logo.svg");
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  #header_chat {
+    background-image: url("./icons/chat.svg");
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  #header_how_it_works {
+    background-image: url("./icons/lightblulb.svg");
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  #header_donate {
+    background-image: url("./icons/present.svg");
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  #header_impressum {
+    background-image: url("./icons/location.svg");
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  #header_logout {
+    margin-left: auto;
+    background-color: #203A4C;
+    background-image: url("./img/lock_closed.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  #header_logout:hover {
+    background-image: url("./img/lock_closed_light.svg");
+  }
+  
+main {
+    width: 100%;
+    height: 80%;
+    align-items: center;
+    text-align: center;
+    margin-top: 10%;
+    color: aliceblue;
+}
+  
+  footer {
+    width: 100%;
+    height: 5%;
+    position: absolute;
+    bottom: 0;
+    background-color: #22577A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #test {
+    margin-top: 20%;
+  }
