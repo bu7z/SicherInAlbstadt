@@ -2,28 +2,35 @@ html, body {
   height: 100%;
 }
 
-body{
+body {
     background-color: #082c44;
     margin: 0;
 }
 
-.lock{
+.lock {
     float: right;
     margin-top: 15px;
     left: 90%;
-
 }
 
-.left{
+.btn_lock {
+    background-color: #082c44;
+    border-radius: 17px;
+    border: 0px;
+}
+
+.left {
     float: left;
     width: 30%;
     height: 90%;
+    /*height: 87vh;*/
     background-color: #22577A;
     border-radius: 27px;
     margin: 15px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: larger;
     color: white;
+    position: relative;
 }
 
 .btn_abrufen{
@@ -31,29 +38,64 @@ body{
     border: 0px;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
-    font-size: larger;
+    font-size: 1.5em;
     border-radius: 17px;
     position: absolute;
-    top: 80%;
-    left: 11%;
-    width: 10%;
-    height: 40px;
+    top: 88%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: auto;
 }
 
 .imgsia{
     opacity: 0.3;
     position: absolute;
-    top: 25%;
-    left: 5.5%;
+    top: 20%;
+    left: 9%;
+    background-size: contain;
+    max-width: 80%;
+    height: auto;
 }
+
+.siapic{
+    max-width: 100%;
+    height: auto;
+}
+
+.anz_nachrichten{
+    position: relative;
+    top: 60%;
+    font-size: larger;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.animation{
+    overflow: hidden;
+    height:1.1em;
+    word-wrap: break-word;
+    white-space: nowrap;
+    animation: typing 5s steps(48) forwards;
+}
+
+@keyframes typing {
+    from {
+       width: 0;
+    }
+    to {
+       width: 48ch;
+    }
+ }
 
 .fragen{
     position: absolute;
-    width: 60%;
+    width: 59.2%;
     height: 150px;
-    left: 32%;
+    left: 32.2%;
     top: 15px;
-
     background: #22577A;
     border-radius: 27px;
     font-family: Arial, Helvetica, sans-serif;
@@ -61,63 +103,98 @@ body{
     color: white;
 }
 
-p{
+.text{
     text-align: center;
-    margin-top: 50px;
+    margin-top: 4.5%;
 }
 
-.buttons{
-    position: absolute;
-    left: 45%;
-    right: 20%;
-    top: 25%;
-    bottom: 25%;
+.text2{
+    text-align: center;
+    margin-top: 11%;
+    font-size: larger;
 }
 
 .btn1{
     position: absolute;
-    right:    0;
-    bottom:   0;
+    top: 55%;
+    left:70%;
 }
 
 .btn2{
     position: absolute;
-    left:    0;
-    bottom:   0;
+    left: 45%;
+    top: 55%;
 }
 
 .btn3{
     position: absolute;
-    left:    0;
-    top:   0;
+    left: 45%;
+    top: 25%;
 }
 
 .btn4{
     position: absolute;
-    right:    0;
-    top:   0;
+    top: 25%;
+    left: 70%;
 }
 
 .btnmiddle{
-    width: 266px;
-    height: 177px;
-    border-radius: 17px;
+    min-width:100px;
+    width:260%;
     background: #38A3A5;
-    border: 0px;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     font-size: larger;
+    border-radius: 17px;
+    border: none;
 }
 
-button:hover{
-    border: 5px solid #22577A;
+.btnmiddle2{
+    min-width:100px;
+    width:240%;
+    background: #38A3A5;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: larger;
+    border-radius: 17px;
+    border: none;
+}
+  
+
+.btn_p{
+    text-align: center;
+}
+
+.icon_btn{
+    margin-top: 6%;
+}
+
+.btnmiddle:hover{
+    scale: 1.1;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.btnmiddle2:hover{
+    scale: 1.1;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.btn_lock:hover{
+    scale: 1.1;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.btn_abrufen:hover{
+    border: 5px solid #38A3A5;
     cursor: pointer;
 }
 
 footer{
     background-color: #22577A;
     width: 100%;
-
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     text-align: center;
