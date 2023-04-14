@@ -30,7 +30,7 @@ function autoscroll() {
 }
 
 // rename function; nav change on hover
-function toggle_visibility(element) {
+/*function toggle_visibility(element) {
   if (element.children[0].style.display == "none") {
     element.children[0].style.display = "block";
     element.style.backgroundImage = "none";
@@ -39,7 +39,7 @@ function toggle_visibility(element) {
     element.children[0].style.display = "none";
     element.style.backgroundImage = "url('./icons/chat.svg')";
   }
-}
+}*/
 
 // show error message if text empty
 function set_error_message() {
