@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="howItWorks.css">
+    <title>Sicher InAlbstadt</title>
+</head>
+<body>
+    <header>
+        <div id="header_home" class="header_nav"></div>
+        <div id="header_chat" class="header_nav"></div>
+        <div id="header_how_it_works" class="header_nav"></div>
+        <div id="header_donate" class="header_nav"></div>
+        <div id="header_impressum" class="header_nav"></div>
+        <div id="header_logout" class="header_nav"></div>
+    </header>
+
+    <div class="text">
+        <h1>How It Works</h1>
+        <hr>
+        <p>Mit den nachfolgenden Inhalten wollen wir Ihnen, lieber Leser einen Einblick in unsere verwendeten Technologien geben. Damit erhoffen wir uns Ihr Verständnis dieser Seite zu steigern und Ihnen ein höheres Gefühl der Sicherheit zu bieten.</p>
+        <h2>Sicherheit von Beginn an</h2>
+        <p>Der erste Schritt, um eine sichere Kommunikation zu gewährlesiten beginnt schon bei der Registrierung Ihres Nutzerkontos.</p>
+        <h3>Registrierung</h3>
+        <p>Sobald ein neue Nutzer sich registriert wird Ihm ein Schlüsselpaar generiert. Der öffentliche Schlüssel wird hierbei auf unsere Datenbank abgelegt und ist für alle anderen Nutzer der Plattform abrufbar.</p>
+        <p>Das gewählte Passwort sowie der private Schlüssel werden vor der Speicherung in unserer Datenbank verschlüsselt. Im Falle des Pasworters wird lediglich der digitale Fingabdruck in Form des Hashes abgelegt, der private Schlüssel hingegen wird mit dem Passwort des Nutzers auf Clientseite verschlüsselt und anschließend unserer Datenbank hinzugefügt.</p>
+        <p>Mit dieser Besonderheit kann der Nutzer darauf verzichten seinen privaten Schlüssel lokal zu sichern und muss sich keine Gedanken machen wo er den Schlüssel abspeichert und auf welchen Geräten er sich befindet. Somit gewährleisten wir einen problemlosen Zugriff von allen Geräten</p>
+        <p><b>Wichtig! </b>Zu bedenken ist jedoch das nur mittels des anfänglichen benutzten Passwortes das entschlüsseln der Nachrichten möglich ist. Somit besteht die Gefahr das wenn ein Nutzer sein Passwort verlegt, keine Möglichkeit mehr besteht sein Passwort zurückzusetzen, da es nichtmehr möglich wäre den privaten Schlüssel zu entschlüsseln.</p>
+        <h2>Nachrichtenaustausch</h2>
+        <p>Mit der Registrierung abgeschlossen geht es nun an die eigentliche Funktion dieser Seite.</p>
+        <h3>Sicher kommunizieren</h3>
+        <p>Um einen sicheren Informationsaustausch zu gewährleisten darf kein Dritter die Information auf Ihrem weg von A nach B mitlesen. Demnach muss die Nachricht gleich zu beginn beim versenden verschlüsselt werden und es darf erst beim erreichen Ihres Ziels möglich sein diese zu entschlüsseln um es in 4 kurze Worte zu bringen: Ende-zu-Ende-verschlüsselt.</p>
+        <p>Hierfür wird beim verfassen einer Nachricht bzw. dem Zugreifen auf die Gesprächshistorie auf den privaten Schlüssel zugegreifen. Dieser muss wie oben beschrieben zuerst mit dem Passwort des Nutzers entschlüsselt werden, dieses Passwort darf nur dem Nutzer bekannt sein. Mit dem privaten Schlüssel wird dann der symmetrischer Schlüssel entschlüsselt. Beim eröffnen eines neuen Chats wird ein symmetrischer Schlüssel erzeugt welchen dann mittels den jeweiligen öffentlich Schlüssel der Kommunikationspartner entschlüsselt werden kann. Der symmetrische Schlüssel wird hierbei für die Verschlüsselung der eigentliche Nachricht verwendet, damit der Nachrichtentext so effizient wie möglich ver- und entschlüsselt werden kann.</p>
+    </div>
+    
+
+    <footer><p>&copy; 2023 Studententinitiative Albstadt</p></footer>
+</body>
+</html>

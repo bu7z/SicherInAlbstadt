@@ -39,7 +39,6 @@ function hideForm(e){
 
 
 //password confirmation
-
 var password = document.getElementById("pwd")
   , confirm_password = document.getElementById("pwdConf");
 
