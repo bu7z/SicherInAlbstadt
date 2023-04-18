@@ -4,17 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="howItWorks.css">
+    <link rel="stylesheet" href="./how_it_works.css">
     <title>Sicher InAlbstadt</title>
 </head>
 <body>
     <header>
-        <div id="header_home" class="header_nav"></div>
+        <!--<div id="header_home" class="header_nav"></div>
         <div id="header_chat" class="header_nav"></div>
         <div id="header_how_it_works" class="header_nav"></div>
         <div id="header_donate" class="header_nav"></div>
         <div id="header_impressum" class="header_nav"></div>
-        <div id="header_logout" class="header_nav"></div>
+        <div id="header_logout" class="header_nav"></div>-->
+        <div id="header_home" class="header_nav" onclick="window.open('./home.html', '_self')"></div>
+        <div id="header_chat" class="header_nav" onclick="window.open('./chat_page.html', '_self')"></div>
+        <div id="header_how_it_works" class="header_nav"></div>
+        <div id="header_donate" class="header_nav" onclick="window.open('./donate.html', '_self')"></div>
+        <div id="header_impressum" class="header_nav" onclick="window.open('./impressum.html', '_self')"></div>
+        <div id="header_logout" class="header_nav" onclick="window.open('./index.html', '_self')"></div>
     </header>
 
     <div class="text">
@@ -34,7 +40,7 @@
         <p>Um einen sicheren Informationsaustausch zu gewährleisten darf kein Dritter die Information auf Ihrem weg von A nach B mitlesen. Demnach muss die Nachricht gleich zu beginn beim versenden verschlüsselt werden und es darf erst beim erreichen Ihres Ziels möglich sein diese zu entschlüsseln um es in 4 kurze Worte zu bringen: Ende-zu-Ende-verschlüsselt.</p>
         <p>Hierfür wird beim verfassen einer Nachricht bzw. dem Zugreifen auf die Gesprächshistorie auf den privaten Schlüssel zugegreifen. Dieser muss wie oben beschrieben zuerst mit dem Passwort des Nutzers entschlüsselt werden, dieses Passwort darf nur dem Nutzer bekannt sein. Mit dem privaten Schlüssel wird dann der symmetrischer Schlüssel entschlüsselt. Beim eröffnen eines neuen Chats wird ein symmetrischer Schlüssel erzeugt welchen dann mittels den jeweiligen öffentlich Schlüssel der Kommunikationspartner entschlüsselt werden kann. Der symmetrische Schlüssel wird hierbei für die Verschlüsselung der eigentliche Nachricht verwendet, damit der Nachrichtentext so effizient wie möglich ver- und entschlüsselt werden kann.</p>
     </div>
-    
+
 
     <footer><p>&copy; 2023 Studententinitiative Albstadt</p></footer>
 </body>

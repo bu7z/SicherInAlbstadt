@@ -8,12 +8,18 @@
 	</head>
 	<body>
     <header>
-      <div id="header_home" class="header_nav"></div>
+      <!--<div id="header_home" class="header_nav"></div>
       <div id="header_chat" class="header_nav" onmouseover="toggle_visibility(this)" onmouseleave="toggle_visibility(this)"><div id="test">Chat</div></div>
       <div id="header_how_it_works" class="header_nav"></div>
       <div id="header_donate" class="header_nav"></div>
       <div id="header_impressum" class="header_nav"></div>
-      <div id="header_logout" class="header_nav"></div>
+      <div id="header_logout" class="header_nav"></div>-->
+			<div id="header_home" class="header_nav" onclick="window.open('./home.html', '_self')"></div>
+			<div id="header_chat" class="header_nav" onclick="window.open('./chat_page.html', '_self')"></div>
+			<div id="header_how_it_works" class="header_nav" onclick="window.open('./how_it_works.html', '_self')"></div>
+			<div id="header_donate" class="header_nav" onclick="window.open('./donate.html', '_self')"></div>
+			<div id="header_impressum" class="header_nav"></div>
+			<div id="header_logout" class="header_nav" onclick="window.open('./index.html', '_self')"></div>
     </header>
     <main>
         <div class="impressum">
