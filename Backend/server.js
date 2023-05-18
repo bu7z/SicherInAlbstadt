@@ -41,6 +41,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var serviceRouter = require('./services/register.js');
 app.use(serviceRouter);
 
+var serviceR = require('./services/home.js');
+app.use(serviceR);
 
 
 const server = app.listen(HTTP_PORT, () => {
