@@ -18,7 +18,7 @@ const crypto = require('crypto');
 
 
 // Database and Stuff copied from Kuti (kind of)
-const dbFile = './db/SichInAlb.db';
+const dbFile = './db/SicherInAlbstadt.sqlite3';
 const dbConnection = new sqlite.Database(dbFile, (err)=> {
 	if (err){
 		console.error(err.message)
