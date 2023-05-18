@@ -41,13 +41,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var serviceRouter = require('./services/register.js');
 app.use(serviceRouter);
 
-
+//display index.html
+app.use(express.static('../Frontend'));
 
 const server = app.listen(HTTP_PORT, () => {
 	console.log(`Server Started on Port ${HTTP_PORT} ... `);
 });
 
-//display index.html
-app.use(express.static('../Frontend'));
-
-
+app.get('/messages/:id', (req, res) =>{
+	res.send(`Hello ${req.params.id}`)
+});
