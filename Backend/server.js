@@ -1,0 +1,53 @@
+
+// WebAnwednung 2 Projekt
+// Sicher InAlbstadt
+// Version 1.0
+
+
+const HTTP_PORT = 7245;
+const express = require('express');
+const cors = require('cors');
+const sqlite = require('sqlite3').verbose();
+const bcrypt = require('bcrypt');
+const bodyParser = require('body-parser');
+const crypto = require('crypto');
+
+
+
+
+
+
+// Database and Stuff copied from Kuti (kind of)
+const dbFile = './db/SichInAlb.db';
+const dbConnection = new sqlite.Database(dbFile, (err)=> {
+	if (err){
+		console.error(err.message)
+	}else{
+		console.log(`Connected to Database: ${dbFile} ... `);
+	};
+});
+
+const app = express();
+
+// still from Kuti
+// provide service router with database connection / store the database connection in global server environment
+app.locals.dbConnection = dbConnection;
+
+
+app.use(cors());
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+var serviceRouter = require('./services/register.js');
+app.use(serviceRouter);
+
+
+
+const server = app.listen(HTTP_PORT, () => {
+	console.log(`Server Started on Port ${HTTP_PORT} ... `);
+});
+
+//display index.html
+app.use(express.static('../Frontend'));
+
+
