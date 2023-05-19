@@ -42,13 +42,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var serviceRouter = require('./services/register.js');
 app.use(serviceRouter);
 
-<<<<<<< HEAD
 var serviceRouter = require('./services/login.js');
 app.use(serviceRouter);
-=======
-var serviceR = require('./services/home.js');
-app.use(serviceR);
->>>>>>> origin/dynhome
+
+var serviceRouter = require('./services/home.js');
+app.use(serviceRouter);
+
 
 //display index.html
 app.use(express.static('../Frontend'));
