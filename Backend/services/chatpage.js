@@ -24,6 +24,7 @@ serviceRouter.get('/messages', (req, res) => {
         if (err){
             throw result;
         }
+        console.log(result);
     });
 });
 
