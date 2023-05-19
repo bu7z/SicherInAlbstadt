@@ -19,16 +19,16 @@
                 <button class="logreg" onclick="showForm(this)"  id="reg">registrieren</button>
 
                 <div class="logForm" id="logF" onclick="showForm(this)">
-                    <form action="" method="POST">
+                    <form action="/login" method="POST">
                         <h3>login</h3>
+                        <p id="auth"></p>
+                        <input type="text" placeholder="Enter Username" name="unamelog" required><br>
+                        <label for="unamelog"><b>Username</b></label><br>
 
-                        <input type="text" placeholder="Enter Username" name="uname" required><br>
-                        <label for="uname"><b>Username</b></label><br>
+                        <input type="password" placeholder="Enter Password" name="pswlog" required><br>
+                        <label for="pswlog"><b>Password</b></label><br>
 
-                        <input type="password" placeholder="Enter Password" name="psw" required><br>
-                        <label for="psw"><b>Password</b></label><br>
-
-                        <button type="submit" onclick="window.open('./home.html','_self')">Login</button>
+                        <button type="submit">Login</button>
                     </form>
                 </div>
 
@@ -36,7 +36,7 @@
                     <form action="/register" method="POST">
                         <h3>registrieren</h3>
                         <input type="text" placeholder="Enter Username" name="uname" required><br>
-                        <label for="uname"><b>Username</b></label><br>
+                        <label id="kaesekuchen" for="uname"><b>Username</b></label><br>
                         <input type="text" placeholder="Enter Fullname" name="fullname" required><br>
                         <label for="fullname"><b>Vor- Nachname</b></label><br>
 
@@ -46,7 +46,7 @@
                         <input type="password" placeholder="Retype Password" name="pswConf" id="pwdConf" required><br>
                         <label for="pswConf"><b>Check Password</b></label><br>
 
-                        <button type="submit" onclick="window.open('./home.html','_self')">registrieren</button>
+                        <button type="submit">registrieren</button>
                     </form>
                 </div>
 

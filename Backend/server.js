@@ -17,8 +17,9 @@ const crypto = require('crypto');
 
 
 
+
 // Database and Stuff copied from Kuti (kind of)
-const dbFile = './db/SichInAlb.db';
+const dbFile = './db/SicherInAlbstadt.sqlite3';
 const dbConnection = new sqlite.Database(dbFile, (err)=> {
 	if (err){
 		console.error(err.message)
@@ -39,6 +40,9 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var serviceRouter = require('./services/register.js');
+app.use(serviceRouter);
+
+var serviceRouter = require('./services/login.js');
 app.use(serviceRouter);
 
 //display index.html
