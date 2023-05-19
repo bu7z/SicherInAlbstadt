@@ -17,6 +17,7 @@ const crypto = require('crypto');
 
 
 
+
 // Database and Stuff copied from Kuti (kind of)
 const dbFile = './db/SicherInAlbstadt.sqlite3';
 const dbConnection = new sqlite.Database(dbFile, (err)=> {
@@ -41,15 +42,21 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var serviceRouter = require('./services/register.js');
 app.use(serviceRouter);
 
+<<<<<<< HEAD
+var serviceRouter = require('./services/login.js');
+app.use(serviceRouter);
+=======
 var serviceR = require('./services/home.js');
 app.use(serviceR);
+>>>>>>> origin/dynhome
 
+//display index.html
+app.use(express.static('../Frontend'));
 
 const server = app.listen(HTTP_PORT, () => {
 	console.log(`Server Started on Port ${HTTP_PORT} ... `);
 });
 
-//display index.html
-app.use(express.static('../Frontend'));
-
-
+app.get('/messages/:id', (req, res) =>{
+	res.send(`Hello ${req.params.id}`)
+});

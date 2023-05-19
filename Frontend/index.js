@@ -1,5 +1,3 @@
-
-
 let toggle = 0;
 
 function showForm(e){
