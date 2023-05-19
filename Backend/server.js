@@ -12,12 +12,6 @@ const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
 const crypto = require('crypto');
 
-
-
-
-
-
-
 // Database and Stuff copied from Kuti (kind of)
 const dbFile = './db/SicherInAlbstadt.sqlite3';
 const dbConnection = new sqlite.Database(dbFile, (err)=> {
@@ -46,6 +40,9 @@ var serviceRouter = require('./services/login.js');
 app.use(serviceRouter);
 
 var serviceRouter = require('./services/home.js');
+app.use(serviceRouter);
+
+var serviceRouter = require('./services/getMsgs.js');
 app.use(serviceRouter);
 
 

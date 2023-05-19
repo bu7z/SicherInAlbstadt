@@ -17,7 +17,6 @@ cur = con.cursor()
 
 # fill DB with random stuff
 for i in range(1000):
-	user_id = "".join(random.choices("123456789", k=6))
 	username = "".join(random.choices("abcdefghijklmnopqrstuvwxyz", k=6))
 	password = random.choice(password_hashes)
 	key_public = random.choice(key_public_hashes)
@@ -31,7 +30,7 @@ for i in range(1000):
 	sym_key_receiver = random.choice(key_sym_hashes)
 	flag_seen = random.randint(0, 1)
 
-	cur.execute("INSERT INTO users VALUES (?, ?, ?, ?, ?)", (user_id, username, password, key_public, key_private))
+	cur.execute("INSERT INTO users VALUES (?, ?, ?, ?, ?)", (username, password, key_public, key_private))
 	cur.execute("INSERT INTO messages VALUES (?, ?, ?, ?, ?, ?, ?)", (message_id, text, sender_id, receiver_id, sym_key_sender, sym_key_receiver, flag_seen))
 
 # write data to DB

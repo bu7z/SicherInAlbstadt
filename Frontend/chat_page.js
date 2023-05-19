@@ -1,3 +1,13 @@
+
+
+
+
+
+
+
+
+
+
 // need to beautify this shit !!!
 // some global elements cause code duplication is shit
 let element_chat_window;
@@ -12,6 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
   element_chat_window = document.getElementById("chat_main");
   element_input_field = document.getElementById("chat_input_field");
 
+
+  
   // initially hide things
   document.getElementById("header_chat_text").style.display = "none";
 

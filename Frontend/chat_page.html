@@ -67,6 +67,33 @@
 			</div>
     </main>
     <footer><small>&copy 2023 Studenteninitiative Albstadt</small></footer>
-	<script src="./chat_page.js"></script>
+	<script src="./chat_page.js">
+		$(document).ready(function(){
+			console.log('Document ready, loading data from Service');
+
+			$.ajax({
+				url: 'http://localhost:7245/messages/5/9',
+				method: 'get',
+							contentType: 'application/json; charset=utf-8',
+							cache: false,
+							dataType: 'json'
+						}).done(function (response) {
+							console.log('Data loaded successfully');
+							console.log(response);
+
+							var msgs = '';
+							var classRcv = '<div class="chat_bubble chat_bubble_received">'
+							var classSnd = '<div class="chat_bubble chat_bubble_sent">'
+							var closing = '</div>'
+
+							for (i = 0; i < response.length; i++){
+							var obj = response[i];
+							console.log(obj);
+							}
+
+					})
+				})
+
+	</script>
 	</body>
 </html>
