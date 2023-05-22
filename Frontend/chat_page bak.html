@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./chat_page.css">
+		<title>SicherInAlbstadt</title>
+	</head>
+	<body>
+    <header>
+      <div id="header_home" class="header_nav" onclick="window.open('./home.html', '_self')"></div>
+      <div id="header_chat" class="header_nav" onmouseover="toggle_visibility(this)" onmouseleave="toggle_visibility(this)"><div id="header_chat_text">Chat</div></div>
+      <div id="header_how_it_works" class="header_nav" onclick="window.open('./how_it_works.html', '_self')"></div>
+      <div id="header_donate" class="header_nav" onclick="window.open('./donate.html', '_self')"></div>
+      <div id="header_impressum" class="header_nav" onclick="window.open('./impressum.html', '_self')"></div>
+      <div id="header_logout" class="header_nav" onclick="window.open('./index.html', '_self')"></div>
+    </header>
+    <main>
+			<nav id="chat_list">
+				<div id="chat_list_header" class="chat_list_element">
+					<div>Chats</div>
+				</div>
+				<div class="chat_list_element">
+					<div>Max Mustermann</div>
+					<div>06.04.2023</div>
+				</div>
+				<div class="chat_list_element">
+					<div>Olaf Schmidt</div>
+					<div>06.04.2023</div>
+				</div>
+				<div class="chat_list_element">
+					<div>Moritz Butzke</div>
+					<div>06.04.2023</div>
+				</div>
+				<div class="chat_list_element">
+					<div>Marcel Madlener</div>
+					<div>06.04.2023</div>
+				</div>
+			</nav>
+			<div id="chat">
+				<div id="chat_header">
+					<div id="chat_header_name">Anette Tester</div>
+					<div id="chat_header_last_seen">last seen: yesterday</div>
+				</div>
+				<div id="chat_main">
+					<div class="chat_bubble chat_bubble_sent"><div>Ich bin eine Chat-Bubble und das hier ist ein Nachrichten-Text</div></div>
+					<div class="chat_bubble chat_bubble_received"><div>Ich bin eine Chat-Bubble und das hier ist ein Nachrichten-Text</div></div>
+					<div class="chat_bubble chat_bubble_sent"><div>Ich bin eine Chat-Bubble und das hier ist ein Nachrichten-Text</div></div>
+					<div class="chat_bubble chat_bubble_sent"><div>Ich bin eine Chat-Bubble und das hier ist ein Nachrichten-Text</div></div>
+					<div class="chat_bubble chat_bubble_received"><div>Ich bin eine Chat-Bubble und das hier ist ein Nachrichten-Text</div></div>
+					<div class="chat_bubble chat_bubble_received"><div>Ich bin eine Chat-Bubble und das hier ist ein Nachrichten-Text</div></div>
+					<div class="chat_bubble chat_bubble_sent"><div>Ich bin eine Chat-Bubble und das hier ist ein Nachrichten-Text</div></div>
+					<div class="chat_bubble chat_bubble_received"><div>Ich bin eine Chat-Bubble und das hier ist ein Nachrichten-Text</div></div>
+					<div class="chat_bubble chat_bubble_sent"><div>Ich bin eine Chat-Bubble und das hier ist ein Nachrichten-Text</div></div>
+					<div class="chat_bubble chat_bubble_received"><div>Ich bin eine Chat-Bubble und das hier ist ein Nachrichten-Text</div></div>
+					<div class="chat_bubble chat_bubble_sent"><div>Ich bin eine Chat-Bubble und das hier ist ein Nachrichten-Text</div></div>
+					<div class="chat_bubble chat_bubble_received"><div>Ich bin eine Chat-Bubble und das hier ist ein Nachrichten-Text</div></div>
+					<div class="chat_bubble chat_bubble_received"><div>Ich bin eine Chat-Bubble und das hier ist ein Nachrichten-Text</div></div>
+					<div class="chat_bubble chat_bubble_received"><div>Ich bin eine Chat-Bubble und das hier ist ein Nachrichten-Text</div></div>
+					<div class="chat_bubble chat_bubble_received"><div>Ich bin eine Chat-Bubble und das hier ist ein Nachrichten-Text</div></div>
+					<div class="chat_bubble chat_bubble_sent"><div>Der scheiß hier ist actually richtig gut geworden ey fuck me silly!</div></div>
+				</div>
+				<div id="chat_input">
+					<textarea id="chat_input_field" placeholder="type a message..." onfocus="reset_error_message()"></textarea>
+					<button id="chat_input_button" type="button" onclick="click_button(this)">send</button>
+				</div>
+			</div>
+    </main>
+    <footer><small>&copy 2023 Studenteninitiative Albstadt</small></footer>
+	<script src="./chat_page.js">
+		$(document).ready(function(){
+			console.log('Document ready, loading data from Service');
+
+			$.ajax({
+				url: 'http://localhost:7245/messages/5/9',
+				method: 'get',
+							contentType: 'application/json; charset=utf-8',
+							cache: false,
+							dataType: 'json'
+						}).done(function (response) {
+							console.log('Data loaded successfully');
+							console.log(response);
+
+							var msgs = '';
+							var classRcv = '<div class="chat_bubble chat_bubble_received">'
+							var classSnd = '<div class="chat_bubble chat_bubble_sent">'
+							var closing = '</div>'
+
+							for (i = 0; i < response.length; i++){
+							var obj = response[i];
+							console.log(obj);
+							}
+
+					})
+				})
+
+	</script>
+	</body>
+</html>

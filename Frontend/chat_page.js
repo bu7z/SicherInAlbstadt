@@ -1,5 +1,51 @@
 
+const rcvClass1 = "chat_bubble";
+const rcvClass2 = "chat_bubble_received";
+const sndClass1 = "chat_bubble";
+const sndClass2 = "chat_bubble_sent";
+// not sure where we get the userID from (for now)
+// message: userID -> someoneID; someoneID is for now a fixed variable
+// TODO: Create more dynamic userID and someoneID gathering
+const sndID = 5; // is userID
+const rcvID = 9; // is someoneID
 
+fetch(`/messages/${sndID}/${rcvID}`, {
+    method: 'get',
+}).then(response => {
+     if (!response.ok) {
+         throw new Error('an error accured')
+     }
+     return response.json()
+}).then(msgs => { 
+    for(let i = 0; i<msgs.length; i++){
+      let div = document.createElement('div');
+      let div2 = document.createElement('div');
+      // adding corresponding classNames
+      if (msgs[i]["sender_id"] === sndID){
+        div.classList.add(sndClass1);
+        div.classList.add(sndClass2);
+      }else{
+        div.classList.add(rcvClass1);
+        div.classList.add(rcvClass2);
+      }
+      // finalizing the chat-bubble content and position
+      div2.innerHTML = msgs[i]["text"];
+      document.getElementById('chat_main').appendChild(div);
+      div.appendChild(div2);
+
+
+      
+     // div.classList.add(chat_main);
+     // if(msgs[i]["sender_id"] === sndID){
+      //  let newMsg = document.create
+     // }
+
+
+
+      console.log(msgs[i]["text"])
+  }
+})
+  
 
 
 
