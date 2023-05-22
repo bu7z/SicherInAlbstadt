@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const crypto = require('crypto');
 
 const dbFile = './db/SicherInAlbstadt.sqlite3';
-const dbConnection = new sqlite.Database(dbFile, (err)=> {
+const dbConn = new sqlite.Database(dbFile, (err)=> {
 	if (err){
 		console.error(err.message)
 	}else{
@@ -20,11 +20,12 @@ var serviceRouter = express.Router();
 serviceRouter.get('/messages', (req, res) => {
     const sql = 'SELECT * FROM messages WHERE receiver_id = 6206 and sender_id = 6206'
 
-    dbConnection.all(sql, [], (err, result) => {
+    dbConn.all(sql, [], (err, result) => {
         if (err){
             throw result;
         }
-        console.log(result);
+       console.log(result);
+       res.json(result)
     });
 });
 

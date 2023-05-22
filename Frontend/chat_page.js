@@ -6,18 +6,27 @@ const sndClass2 = "chat_bubble_sent";
 // not sure where we get the userID from (for now)
 // message: userID -> someoneID; someoneID is for now a fixed variable
 // TODO: Create more dynamic userID and someoneID gathering
-const sndID = 5; // is userID
-const rcvID = 9; // is someoneID
+const sndID = 9; // is userID
+const rcvID = 5; // is someoneID
 
-fetch(`/messages/${sndID}/${rcvID}`, {
-    method: 'get',
-}).then(response => {
-     if (!response.ok) {
-         throw new Error('an error accured')
-     }
-     return response.json()
-}).then(msgs => { 
-    for(let i = 0; i<msgs.length; i++){
+
+
+const getMessages = async()=>{
+  try{
+    console.log("test");
+    const response = await fetch(`/messages/${sndID}/${rcvID}`,{
+      method: 'GET',
+      credentials: 'include',
+    });
+    if(!response.ok){
+      if(response.status === 401){
+        return new Error('an error has accured');
+      }
+      throw new Error(`${response.status} ${response.statusText}`)
+    }
+    console.log(response.body)
+
+    for(let i = 0; i<response.length; i++){
       let div = document.createElement('div');
       let div2 = document.createElement('div');
       // adding corresponding classNames
@@ -32,8 +41,18 @@ fetch(`/messages/${sndID}/${rcvID}`, {
       div2.innerHTML = msgs[i]["text"];
       document.getElementById('chat_main').appendChild(div);
       div.appendChild(div2);
+    }
+
+  } catch(err) {
+    console.log(err);
   }
-})
+}
+
+getMessages();
+
+
+
+
   
 // sending a message
 function sendMyMessage(){

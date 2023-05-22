@@ -5,7 +5,11 @@ const sqlite = require('sqlite3').verbose();
 const bodyParser = require('body-parser');
 const { generateKeyPair, createCipheriv, randomBytes, createDecipheriv, privateDecrypt, privateEncrypt, createPrivateKey } = require('crypto');
 const md5 = require("md5");
-const { error } = require('console');
+// user authentication
+const jwt = require('jsonwebtoken')
+require('dotenv').config();
+const fsPromises = require('fs').promises;
+const path = require('path')
 
 var serviceRouter = express.Router();
 
@@ -31,10 +35,21 @@ serviceRouter.post('/login', (req, res, next) => {
   
   dbConn.all(sql,(err, rows) => {
     if(rows.length > 0){
+
+      // create JWT
+      const accessToken = jwt.sign(
+          {"username": req.body.unamelog},
+          process.env.ACCESS_TOKEN_SECRET,
+          {expiresIn: '10s'} // INCREASE LATER
+        );
+
+      res.cookie('jwt', accessToken, {httpOnly:true,sameSite: 'None', secure: true, maxAge: 24*60*60*1000});
       res.redirect('/home.html');
+
     }else{
-      res.status(400);
-      res.send('Invalid username or password');
+      res.status(400)
+      res.redirect('/wronfullogin.html');
+
     }
     if (err) {
       next(err);
@@ -42,7 +57,6 @@ serviceRouter.post('/login', (req, res, next) => {
     }
   });
 });
-  
   
 
 module.exports = serviceRouter;

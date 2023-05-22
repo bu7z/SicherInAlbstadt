@@ -6,6 +6,8 @@ const sqlite = require('sqlite3').verbose();
 const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
 const crypto = require('crypto');
+const credentials = require('../middleware/credentials');
+const corsOptions = require('../config/corsOptions');
 
 var serviceRouter = express.Router();
 
@@ -25,8 +27,10 @@ const app = express();
 // provide service router with database connection / store the database connection in global server environment
 app.locals.dbConnection = dbConn;
 
+app.use(credentials);
 
-app.use(cors());
+app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

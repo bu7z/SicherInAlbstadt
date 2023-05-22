@@ -11,6 +11,9 @@ const sqlite = require('sqlite3').verbose();
 const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
 const crypto = require('crypto');
+const verifyJWT = require('./middleware/verifyJWT');
+const credentials = require('./middleware/credentials');
+const corsOptions = require('./config/corsOptions');
 
 // Database and Stuff copied from Kuti (kind of)
 const dbFile = './db/SicherInAlbstadt.sqlite3';
@@ -28,16 +31,22 @@ const app = express();
 // provide service router with database connection / store the database connection in global server environment
 app.locals.dbConnection = dbConnection;
 
+app.use(credentials);
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+//display index.html
+app.use(express.static('../Frontend'));
 
 var serviceRouter = require('./services/register.js');
 app.use(serviceRouter);
 
 var serviceRouter = require('./services/login.js');
 app.use(serviceRouter);
+
+app.use(express.static('../Frontend/chat_page.html'));
 
 var serviceRouter = require('./services/home.js');
 app.use(serviceRouter);
@@ -46,10 +55,10 @@ var serviceRouter = require('./services/getMsgs.js');
 app.use(serviceRouter);
 
 var serviceRouter = require('./services/sndMsg.js');
+
 app.use(serviceRouter);
 
-//display index.html
-app.use(express.static('../Frontend'));
+
 
 const server = app.listen(HTTP_PORT, () => {
 	console.log(`Server Started on Port ${HTTP_PORT} ... `);
