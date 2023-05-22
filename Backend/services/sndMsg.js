@@ -1,4 +1,3 @@
-
 const HTTP_PORT = 7245;
 const express = require('express');
 const cors = require('cors');
@@ -30,26 +29,24 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+serviceRouter.post('/sndMsg', (req, res) => {
+    
+    var text = req.body["text"];
+    var sndID = req.body["sender_id"];
+    var rcvID = req.body["reciever_id"];
+    var symkeyS = "symKeyENCbysender"
+    var symkeyR = "symKeyENCbyreceiver"
 
-serviceRouter.get('/messages/:idSnd/:idRcv', (req, res) => {
-    let sql = `SELECT * FROM messages where (sender_id = ${req.params.idSnd} AND receiver_id = ${req.params.idRcv} ) OR (${req.params.idRcv} = sender_id AND ${req.params.idSnd} = receiver_id)`;
-	
-    dbConn.all(sql,(err,rows) => {
-		if(rows){
-			res.status(200).json(rows)
-		}else{
-			console.log("no new messages")
-			//TODO: something should happen here
-		}
-		console.log(rows);
-		if(err){
-			console.log(err);
-			return;
-		}
-	});
+    let sql = `INSERT INTO messages (text,sender_id,receiver_id,sym_key_sender,sym_key_receiver,flag_seen) VALUES (?,?,?,?,?,?)`;
 
-	
-});
+    dbConn.run(sql, [text,sndID,rcvID,symkeyS,symkeyR,0], function (err, result) {
+        if (err){
+            res.status(400).json({"error": err.message})
+            return;
+        }
+    })
+})
+
 
 
 module.exports = serviceRouter;

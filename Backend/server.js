@@ -45,6 +45,8 @@ app.use(serviceRouter);
 var serviceRouter = require('./services/getMsgs.js');
 app.use(serviceRouter);
 
+var serviceRouter = require('./services/sndMsg.js');
+app.use(serviceRouter);
 
 //display index.html
 app.use(express.static('../Frontend'));

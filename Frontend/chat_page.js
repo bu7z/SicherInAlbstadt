@@ -32,20 +32,29 @@ fetch(`/messages/${sndID}/${rcvID}`, {
       div2.innerHTML = msgs[i]["text"];
       document.getElementById('chat_main').appendChild(div);
       div.appendChild(div2);
-
-
-      
-     // div.classList.add(chat_main);
-     // if(msgs[i]["sender_id"] === sndID){
-      //  let newMsg = document.create
-     // }
-
-
-
-      console.log(msgs[i]["text"])
   }
 })
   
+// sending a message
+function sendMyMessage(){
+  var msgbody = document.getElementById('chat_input_field').value
+  if(msgbody){
+    console.log(msgbody);
+    fetch("/sndMsg", {
+      method : "POST",
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        text: msgbody,
+        sender_id: sndID,
+        reciever_id: rcvID
+      })
+    })
+  }else{
+    console.log("empty message - not send")
+  }
+
+  
+}
 
 
 
