@@ -18,7 +18,7 @@ const dbConnection = new sqlite.Database(dbFile, (err)=> {
 var serviceRouter = express.Router();
 
 serviceRouter.get('/home_name', (req, res)=>{
-        const sql = 'SELECT username FROM users WHERE user_id = 365725';
+        const sql = 'SELECT username FROM users WHERE user_id = 2';
         dbConnection.get(sql, (err, result) => {
             if(err){
                 throw err;
@@ -29,7 +29,7 @@ serviceRouter.get('/home_name', (req, res)=>{
     });
 
 serviceRouter.get('/home_anznachr', (req, res)=>{
-    const sql = 'SELECT COUNT(*) as count FROM messages WHERE flag_seen = 0 AND receiver_id = 77038';
+    const sql = 'SELECT COUNT(*) as count FROM messages WHERE flag_seen = 0 AND receiver_id = 5544';
     dbConnection.get(sql, (err, result) => {
         if (err){
             throw err;
