@@ -31,11 +31,26 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-serviceRouter.get('/messages/:idSnd/:id', (req, res) => {
-    console.log(id);
-    let sql = `SELECT text, sender_id, receiver_id FROM messages WHERE (${req.params.idSnd} = sender_id AND ${req.params.idRcv} = receiver_id) OR (${req.params.idRcv} = sender_id AND ${req.params.idSnd} = receiver_id)`;
-    var result = dbConn.run(sql,[]);
-    res.status(200).json(result);
+serviceRouter.get('/messages/:idSnd/:idRcv', (req, res) => {
+    console.log('idRcv: ' + req.params.idRcv);
+	console.log('idSnd: ' + req.params.idSnd);
+    let sql = `SELECT * FROM messages where (sender_id = ${req.params.idSnd} AND receiver_id = ${req.params.idRcv} ) OR (${req.params.idRcv} = sender_id AND ${req.params.idSnd} = receiver_id)`;
+	
+    dbConn.all(sql,(err,rows) => {
+		if(rows){
+			res.status(200).json(rows)
+		}else{
+			console.log("no new messages")
+			//TODO: something should happen here
+		}
+		console.log(rows);
+		if(err){
+			console.log(err);
+			return;
+		}
+	});
+
+	
 });
 
 
