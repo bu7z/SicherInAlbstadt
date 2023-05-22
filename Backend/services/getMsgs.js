@@ -44,9 +44,9 @@ serviceRouter.get('/messages/:idSnd/:idRcv', (req, res) => {
 	
 			dbConn.all(sql,(err,rows) => {
 				if(rows){
-					sql = 'UPDATE messages SET flag_seen = 1 WHERE msg_id = ?'
+					sql = 'UPDATE messages SET flag_seen = 1 WHERE msg_id = ? AND receiver_id = ?'
 					rows.forEach(row =>{
-						dbConn.all(sql,[row["msg_id"]])
+						dbConn.all(sql,[row["msg_id"], userID])
 					})
 
 					res.status(200).json(rows)
