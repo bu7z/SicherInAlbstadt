@@ -8,6 +8,8 @@ const bodyParser = require('body-parser');
 const crypto = require('crypto');
 const credentials = require('../middleware/credentials');
 const corsOptions = require('../config/corsOptions');
+const jwt = require('jsonwebtoken');
+
 
 var serviceRouter = express.Router();
 
@@ -28,29 +30,40 @@ const app = express();
 app.locals.dbConnection = dbConn;
 
 app.use(credentials);
-
 app.use(cors(corsOptions));
-
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
 serviceRouter.get('/messages/:idSnd/:idRcv', (req, res) => {
-    let sql = `SELECT * FROM messages where (sender_id = ${req.params.idSnd} AND receiver_id = ${req.params.idRcv} ) OR (${req.params.idRcv} = sender_id AND ${req.params.idSnd} = receiver_id)`;
 	
-    dbConn.all(sql,(err,rows) => {
-		if(rows){
-			res.status(200).json(rows)
-		}else{
-			console.log("no new messages")
-			//TODO: something should happen here
-		}
-		console.log(rows);
-		if(err){
-			console.log(err);
-			return;
-		}
-	});
+	var token = jwt.decode(req.cookies["jwt"]);
+	var userID = token["user_id"]
+	var rcvID = req.params.idRcv;
+			sql = `SELECT * FROM messages where (sender_id = ${userID} AND receiver_id = ${rcvID} ) OR (${rcvID} = sender_id AND ${userID} = receiver_id)`;
+	
+			dbConn.all(sql,(err,rows) => {
+				if(rows){
+					sql = 'UPDATE messages SET flag_seen = 1 WHERE msg_id = ?'
+					rows.forEach(row =>{
+						dbConn.all(sql,[row["msg_id"]])
+					})
+
+					res.status(200).json(rows)
+					console.log("chat messages send")
+					return
+				}else{
+					console.log("no new messages")
+					//TODO: something should happen here
+				}
+				if(err){
+					console.log(err);
+					return;
+				}
+			});
+	
+
+
 
 	
 });

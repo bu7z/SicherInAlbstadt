@@ -6,8 +6,24 @@ const sndClass2 = "chat_bubble_sent";
 // not sure where we get the userID from (for now)
 // message: userID -> someoneID; someoneID is for now a fixed variable
 // TODO: Create more dynamic userID and someoneID gathering
-const sndID = 9; // is userID
-const rcvID = 5; // is someoneID
+
+
+function parseJwt (token) {
+  var base64Url = token.split('.')[1];
+  var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+  var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+  }).join(''));
+
+  return JSON.parse(jsonPayload);
+}
+
+rcvID = 7;
+var sndID = parseJwt(document.cookie)["user_id"]
+if (sndID === 7){
+  rcvID = 3;
+}
+
 
 
 
@@ -24,13 +40,13 @@ const getMessages = async()=>{
       }
       throw new Error(`${response.status} ${response.statusText}`)
     }
-    console.log(response.body)
-
-    for(let i = 0; i<response.length; i++){
+    result = await response.json()
+    console.log(result);
+    for(let i = 0; i<result.length; i++){
       let div = document.createElement('div');
       let div2 = document.createElement('div');
       // adding corresponding classNames
-      if (msgs[i]["sender_id"] === sndID){
+      if (result[i]["sender_id"] === sndID){
         div.classList.add(sndClass1);
         div.classList.add(sndClass2);
       }else{
@@ -38,7 +54,7 @@ const getMessages = async()=>{
         div.classList.add(rcvClass2);
       }
       // finalizing the chat-bubble content and position
-      div2.innerHTML = msgs[i]["text"];
+      div2.innerHTML = result[i]["text"];
       document.getElementById('chat_main').appendChild(div);
       div.appendChild(div2);
     }

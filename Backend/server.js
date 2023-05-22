@@ -14,6 +14,7 @@ const crypto = require('crypto');
 const verifyJWT = require('./middleware/verifyJWT');
 const credentials = require('./middleware/credentials');
 const corsOptions = require('./config/corsOptions');
+const cookieParser = require("cookie-parser");
 
 // Database and Stuff copied from Kuti (kind of)
 const dbFile = './db/SicherInAlbstadt.sqlite3';
@@ -26,7 +27,7 @@ const dbConnection = new sqlite.Database(dbFile, (err)=> {
 });
 
 const app = express();
-
+app.use(cookieParser());
 // still from Kuti
 // provide service router with database connection / store the database connection in global server environment
 app.locals.dbConnection = dbConnection;
@@ -45,6 +46,7 @@ app.use(serviceRouter);
 
 var serviceRouter = require('./services/login.js');
 app.use(serviceRouter);
+
 
 app.use(express.static('../Frontend/chat_page.html'));
 

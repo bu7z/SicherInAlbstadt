@@ -31,19 +31,19 @@ const dbConn = new sqlite.Database(dbFile, (err)=> {
 serviceRouter.post('/login', (req, res, next) => {
   const pw = md5(req.body.pswlog);
   let sql = `SELECT user_id FROM users WHERE username = "${req.body.unamelog}" AND password = "${pw}"`;
-  var x;
+  
   
   dbConn.all(sql,(err, rows) => {
     if(rows.length > 0){
-
+      var userID = rows[0]["user_id"]
       // create JWT
       const accessToken = jwt.sign(
-          {"username": req.body.unamelog},
+          {"user_id": userID},
           process.env.ACCESS_TOKEN_SECRET,
-          {expiresIn: '10s'} // INCREASE LATER
+          {expiresIn: '1d'} // INCREASE LATER
         );
 
-      res.cookie('jwt', accessToken, {httpOnly:true,sameSite: 'None', secure: true, maxAge: 24*60*60*1000});
+      res.cookie('jwt', accessToken, {httpOnly:false,sameSite: 'None', maxAge: 24*60*60*1000});
       res.redirect('/home.html');
 
     }else{

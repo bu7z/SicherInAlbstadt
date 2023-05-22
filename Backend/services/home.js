@@ -5,6 +5,8 @@ const sqlite = require('sqlite3').verbose();
 const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
 const crypto = require('crypto');
+const jwt = require('jsonwebtoken');
+
 
 const dbFile = './db/SicherInAlbstadt.sqlite3';
 const dbConnection = new sqlite.Database(dbFile, (err)=> {
@@ -18,7 +20,9 @@ const dbConnection = new sqlite.Database(dbFile, (err)=> {
 var serviceRouter = express.Router();
 
 serviceRouter.get('/home_name', (req, res)=>{
-        const sql = 'SELECT username FROM users WHERE user_id = 2';
+    var token = jwt.decode(req.cookies["jwt"]);
+	var userID = token["user_id"]
+        const sql = `SELECT username FROM users WHERE user_id = ${userID}`;
         dbConnection.get(sql, (err, result) => {
             if(err){
                 throw err;
@@ -29,7 +33,9 @@ serviceRouter.get('/home_name', (req, res)=>{
     });
 
 serviceRouter.get('/home_anznachr', (req, res)=>{
-    const sql = 'SELECT COUNT(*) as count FROM messages WHERE flag_seen = 0 AND receiver_id = 5544';
+    var token = jwt.decode(req.cookies["jwt"]);
+	var userID = token["user_id"]
+    const sql = `SELECT COUNT(*) as count FROM messages WHERE flag_seen = 0 AND receiver_id = ${userID}`;
     dbConnection.get(sql, (err, result) => {
         if (err){
             throw err;

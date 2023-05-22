@@ -5,6 +5,9 @@ const sqlite = require('sqlite3').verbose();
 const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
 const crypto = require('crypto');
+const credentials = require('../middleware/credentials');
+const corsOptions = require('../config/corsOptions');
+const jwt = require('jsonwebtoken');
 
 var serviceRouter = express.Router();
 
@@ -30,14 +33,22 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 serviceRouter.post('/sndMsg', (req, res) => {
+
     
+	var token = jwt.decode(req.cookies["jwt"]);
+	var userID = token["user_id"]
+
     var text = req.body["text"];
-    var sndID = req.body["sender_id"];
+    var sndID = userID
     var rcvID = req.body["reciever_id"];
     var symkeyS = "symKeyENCbysender"
     var symkeyR = "symKeyENCbyreceiver"
 
-    let sql = `INSERT INTO messages (text,sender_id,receiver_id,sym_key_sender,sym_key_receiver,flag_seen) VALUES (?,?,?,?,?,?)`;
+    if (userID === 7){
+        rcvID = 3;
+    }
+
+    sql = `INSERT INTO messages (text,sender_id,receiver_id,sym_key_sender,sym_key_receiver,flag_seen) VALUES (?,?,?,?,?,?)`;
 
     dbConn.run(sql, [text,sndID,rcvID,symkeyS,symkeyR,0], function (err, result) {
         if (err){
