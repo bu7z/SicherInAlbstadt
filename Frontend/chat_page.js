@@ -90,3 +90,12 @@ function click_button(element) {
     element_input_field.value = "";
   }
 }
+
+document.getElementById("header_chat").addEventListener("click", () => {
+  document.getElementById("dialog").showModal();
+});
+
+document.getElementById("abbruch").addEventListener("click", () => {
+  document.getElementById("dialog").close();
+});
+

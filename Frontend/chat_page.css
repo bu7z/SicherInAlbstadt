@@ -54,7 +54,7 @@ header {
 }
 
 #header_chat {
-  background-image: url("./icons/chat.svg");
+  background-image: url("./icons/newchat.svg");
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
@@ -263,3 +263,41 @@ footer {
   justify-content: center;
   align-items: center;
 }
+
+dialog:not([open]) {
+  display: none;
+}
+
+/* Styling der geöffneten Popup-Box */
+dialog[open] { 
+  width: 20em; 
+  background: #22577A; 
+  border: thin solid #38A3A5;
+  margin: 5em auto;
+  color: #FFFFFF;
+}
+
+#newuname{
+  background-color: #38A3A5;
+  margin-left: 1%;
+  border-radius: 20px;
+  transition: 0.3s;
+  border: 0px;
+}
+
+#abbruch{
+  background-color: #38A3A5;
+  margin-left: 1%;
+  border-radius: 20px;
+  transition: 0.3s;
+  border: 0px;
+}
+
+#abbruch:hover{
+  background-color: #22577A;
+}
+
+#newuname:hover{
+  background-color: #22577A;
+}
+

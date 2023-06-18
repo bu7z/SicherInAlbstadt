@@ -9,13 +9,22 @@
 	<body>
     <header>
       <div id="header_home" class="header_nav" onclick="window.open('./home.html', '_self')"></div>
-      <div id="header_chat" class="header_nav" onmouseover="toggle_visibility(this)" onmouseleave="toggle_visibility(this)"><div id="header_chat_text">Chat</div></div>
+	  <div id="header_chat" class="header_nav"></div>
       <div id="header_how_it_works" class="header_nav" onclick="window.open('./how_it_works.html', '_self')"></div>
       <div id="header_donate" class="header_nav" onclick="window.open('./donate.html', '_self')"></div>
       <div id="header_impressum" class="header_nav" onclick="window.open('./impressum.html', '_self')"></div>
       <div id="header_logout" class="header_nav" onclick="window.open('./index.html', '_self')"></div>
     </header>
     <main>
+			<dialog  id="dialog">
+				<h2>Neuer Chat</h2>
+				<form method="dialog">
+			   		<label>Nutzername:</label>
+					<input id="uname"></input>
+			   		<button id="newuname" value="newuname">Chatten</button>
+			   		<button id="abbruch">Abbrechen</button>
+			 	</form>
+			</dialog> 
 			<nav id="chat_list">
 				<div id="chat_list_header" class="chat_list_element">
 					<div>Chats</div>
