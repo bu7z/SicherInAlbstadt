@@ -18,6 +18,7 @@ const cookieParser = require("cookie-parser");
 
 // Database and Stuff copied from Kuti (kind of)
 const dbFile = './db/SicherInAlbstadt.sqlite3';
+
 const dbConnection = new sqlite.Database(dbFile, (err)=> {
 	if (err){
 		console.error(err.message)
@@ -28,13 +29,13 @@ const dbConnection = new sqlite.Database(dbFile, (err)=> {
 
 const app = express();
 app.use(cookieParser());
-// still from Kuti
+
 // provide service router with database connection / store the database connection in global server environment
 app.locals.dbConnection = dbConnection;
 
 app.use(credentials);
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions)); // is destroying site dont uncomment!
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -46,6 +47,7 @@ app.use(serviceRouter);
 
 var serviceRouter = require('./services/login.js');
 app.use(serviceRouter);
+
 
 
 app.use(express.static('../Frontend/chat_page.html'));

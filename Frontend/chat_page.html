@@ -16,6 +16,17 @@
       <div id="header_logout" class="header_nav" onclick="window.open('./index.html', '_self')"></div>
     </header>
     <main>
+		<!--New Chat-->
+		<dialog  id="dialog">
+			<h2>Neuer Chat</h2>
+			<form method="dialog">
+				   <label>Nutzername:</label>
+				<input id="uname" type="text"></input>
+				   <button id="newuname" value="newuname" onclick="getUser()">Chatten</button>
+				   <button id="abbruch">Abbrechen</button>
+			 </form>
+		</dialog> 
+
 			<nav id="chat_list">
 				<div id="chat_list_header" class="chat_list_element">
 					<div>Chats</div>

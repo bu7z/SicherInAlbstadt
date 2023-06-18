@@ -3,9 +3,8 @@ const rcvClass1 = "chat_bubble";
 const rcvClass2 = "chat_bubble_received";
 const sndClass1 = "chat_bubble";
 const sndClass2 = "chat_bubble_sent";
-// not sure where we get the userID from (for now)
-// message: userID -> someoneID; someoneID is for now a fixed variable
-// TODO: Create more dynamic userID and someoneID gathering
+// message: userID -> someoneID; someoneID is for now a fixed variable (kind of)
+// TODO: Create more dynamic someoneID gathering
 
 
 function parseJwt (token) {
@@ -67,6 +66,50 @@ const getMessages = async()=>{
 getMessages();
 
 
+// New Chat
+const getUser = async()=>{
+
+  var reqUser = document.getElementById('uname').value;
+  console.log(reqUser);
+  try{
+    const response = await fetch(`/users/${reqUser}`,{
+      method: 'GET',
+      credentials: 'include',
+    });
+    if(!response.ok){
+      
+      if(response.status === 401){
+        return new Error('an error has accured');
+      }
+      throw new Error(`${response.status} ${response.statusText}`)
+    }
+    result = await response.json()
+    console.log(result);
+    for(let i = 0; i<result.length; i++){
+      console.log()
+
+      let div = document.createElement('div');
+      let div2 = document.createElement('div');
+      // adding corresponding classNames
+
+      div.classList.add("chat_list_element");
+      var receiver = result[i]["user_id"]
+      div.setAttribute('id',receiver);
+
+      div2.innerHTML = result[i]["username"];
+      document.getElementById('chat_list').appendChild(div);
+      div.appendChild(div2);
+      
+    }
+
+  } catch(err) {
+    console.log(err);
+  }
+}
+
+
+
+
 
 
   
@@ -124,6 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	element_error_message.id = "div_error_message";
 
   console.log("DOM ready");
+  autoscroll();
 });
 
 // scroll down chat window to bottom
@@ -180,3 +224,12 @@ function click_button(element) {
     element_input_field.value = "";
   }
 }
+
+
+document.getElementById("header_chat").addEventListener("click", () => {
+  document.getElementById("dialog").showModal();
+});
+
+document.getElementById("abbruch").addEventListener("click", () => {
+  document.getElementById("dialog").close();
+});

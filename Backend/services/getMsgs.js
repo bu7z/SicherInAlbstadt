@@ -60,13 +60,33 @@ serviceRouter.get('/messages/:idSnd/:idRcv', (req, res) => {
 					console.log(err);
 					return;
 				}
-			});
-	
-
-
-
-	
+			});	
 });
+
+
+
+serviceRouter.get('/users/:name([a-zA-Z]+)', (req, res) => {
+	console.log(req.params.name);
+
+			sql = `SELECT * FROM users where username = '${req.params.name}'`;
+			dbConn.all(sql,(err,rows) => {
+				if(rows){			
+
+					res.status(200).json(rows)
+					console.log("User Found")
+					return
+				}else{
+					console.log("No User");
+					res.status(404);
+				}
+				if(err){
+					console.log(err);
+					return;
+				}
+			});	
+});
+
+
 
 
 module.exports = serviceRouter;

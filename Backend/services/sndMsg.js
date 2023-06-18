@@ -23,7 +23,7 @@ const dbConn = new sqlite.Database(dbFile, (err)=> {
 
 const app = express();
 
-// still from Kuti
+
 // provide service router with database connection / store the database connection in global server environment
 app.locals.dbConnection = dbConn;
 
