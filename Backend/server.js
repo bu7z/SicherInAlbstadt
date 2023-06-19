@@ -48,7 +48,7 @@ app.use(serviceRouter);
 var serviceRouter = require('./services/login.js');
 app.use(serviceRouter);
 
-
+// app.use(verifyJWT);
 
 app.use(express.static('../Frontend/chat_page.html'));
 
@@ -59,6 +59,7 @@ var serviceRouter = require('./services/getMsgs.js');
 app.use(serviceRouter);
 
 var serviceRouter = require('./services/sndMsg.js');
+
 
 app.use(serviceRouter);
 
