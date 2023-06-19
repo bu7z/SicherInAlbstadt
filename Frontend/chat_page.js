@@ -17,16 +17,21 @@ function parseJwt (token) {
   return JSON.parse(jsonPayload);
 }
 
-rcvID = 7;
-var sndID = parseJwt(document.cookie)["user_id"]
-if (sndID === 7){
-  rcvID = 3;
-}
+
+const sndID = parseJwt(document.cookie)["user_id"]
+var rcvID;
 
 
 
 
-const getMessages = async()=>{
+const getMessages = async(event)=>{
+
+  var bubbles = document.getElementById('chat_main');
+  bubbles.innerHTML = '';
+
+  rcvID = event.target.id;
+  console.log(rcvID);
+
   try{
     console.log("test");
     const response = await fetch(`/messages/${sndID}/${rcvID}`,{
@@ -56,6 +61,7 @@ const getMessages = async()=>{
       div2.innerHTML = result[i]["text"];
       document.getElementById('chat_main').appendChild(div);
       div.appendChild(div2);
+      autoscroll();
     }
 
   } catch(err) {
@@ -63,7 +69,45 @@ const getMessages = async()=>{
   }
 }
 
-getMessages();
+
+//Load all Conversations
+const getChats = async()=>{
+  try{
+    console.log("test");
+    const response = await fetch(`/convos`,{
+      method: 'GET',
+      credentials: 'include',
+    });
+    if(!response.ok){
+      if(response.status === 401){
+        return new Error('an error has accured');
+      }
+      throw new Error(`${response.status} ${response.statusText}`)
+    }
+    result = await response.json()
+    console.log(result);
+    for(let i = 0; i<result.length; i++){
+      let div = document.createElement('div');
+      div.addEventListener("click", getMessages);
+      let div2 = document.createElement('div');
+
+
+      // adding corresponding classNames
+      div.classList.add("chat_list_element");
+      var receiver = result[i]["user_id"]
+      div.setAttribute('id',receiver);
+
+      div2.innerHTML = result[i]["username"];
+      document.getElementById('chat_list').appendChild(div);
+      div.appendChild(div2);
+
+      
+    }
+
+  } catch(err) {
+    console.log(err);
+  }
+}
 
 
 // New Chat
@@ -99,6 +143,8 @@ const getUser = async()=>{
       div2.innerHTML = result[i]["username"];
       document.getElementById('chat_list').appendChild(div);
       div.appendChild(div2);
+
+      div.addEventListener("click", getMessages);
       
     }
 
@@ -167,7 +213,18 @@ document.addEventListener("DOMContentLoaded", () => {
 	element_error_message.id = "div_error_message";
 
   console.log("DOM ready");
-  autoscroll();
+
+  getChats();
+
+
+
+
+
+
+
+
+
+  
 });
 
 // scroll down chat window to bottom

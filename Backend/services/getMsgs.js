@@ -87,6 +87,33 @@ serviceRouter.get('/users/:name([a-zA-Z]+)', (req, res) => {
 });
 
 
+serviceRouter.get('/convos', (req, res) => {
+	
+	var token = jwt.decode(req.cookies["jwt"]);
+	var userID = token["user_id"]
+
+	
+
+			sql = `select distinct user_id, username from messages LEFT JOIN users ON messages.receiver_id = users.user_id where sender_id = ${userID} UNION SELECT DISTINCT users.user_id, users.username FROM messages LEFT JOIN users ON messages.sender_id = users.user_id WHERE receiver_id = ${userID};`
+
+			dbConn.all(sql,(err,rows) => {
+				if(rows){
+					console.log(rows)
+					res.status(200).json(rows)
+					console.log("chat messages send")
+					return
+				}else{
+					console.log("no new messages")
+					//TODO: something should happen here
+				}
+				if(err){
+					console.log(err);
+					return;
+				}
+			});	
+});
+
+
 
 
 module.exports = serviceRouter;
