@@ -21,7 +21,37 @@ function parseJwt (token) {
 const sndID = parseJwt(document.cookie)["user_id"]
 var rcvID;
 
+// scroll down chat window to bottom
+function autoscroll() {
+  element_chat_window.scrollTop = element_chat_window.scrollHeight;
+}
 
+// send message button
+function click_button(element) {
+  // create inner and outer div and add to chat window
+  const element_div_outer = document.createElement("div");
+  const element_div_inner = document.createElement("div");
+  const message = element_input_field.value;
+  const node = document.createTextNode(message);
+
+  if (message == "") {
+    set_error_message();
+  } else {
+    element_div_inner.appendChild(node);
+    element_div_outer.appendChild(element_div_inner);
+
+    element_div_outer.classList.add("chat_bubble");
+    element_div_outer.classList.add("chat_bubble_sent");
+
+    element_chat_window.appendChild(element_div_outer);
+
+    // make sure it automatically scrolls down to latest message when send
+    autoscroll();
+
+    // reset textarea after message sent
+    element_input_field.value = "";
+  }
+}
 
 
 const getMessages = async(event)=>{
