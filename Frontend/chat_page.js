@@ -189,6 +189,7 @@ const getUser = async()=>{
 const getUser2 = async(event)=>{
 
   reqUser = event.target.id;
+  console.log("USERID:" + event.target.id);
   console.log(reqUser);
   try{
     const response = await fetch(`/users/${reqUser}`,{
