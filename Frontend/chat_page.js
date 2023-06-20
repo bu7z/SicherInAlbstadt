@@ -208,7 +208,7 @@ const getUser2 = async()=>{
   } catch(err) {
     console.log(err);
   }*/
-  document.getElementBy("chat_header_name").innerHTML = "test";
+  document.getElementById("chat_header_name").innerHTML = "test";
 }
 
 
