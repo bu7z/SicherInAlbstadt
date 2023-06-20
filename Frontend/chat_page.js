@@ -205,7 +205,7 @@ const getUser2 = async(event)=>{
     }
     result = await response.json()
     console.log(result);
-    document.getElementById("chat_header_name").innerHTML = result["user_id"];
+    document.getElementById("chat_header_name").innerHTML = result[0]["username"];
 
   } catch(err) {
     console.log(err);
