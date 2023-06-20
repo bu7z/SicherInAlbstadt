@@ -176,7 +176,7 @@ const getUser = async()=>{
       div.appendChild(div2);
 
       div.addEventListener("click", getMessages);
-      
+      div.addEventListener("click", getUser2);
     }
 
   } catch(err) {
