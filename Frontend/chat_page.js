@@ -186,9 +186,9 @@ const getUser = async()=>{
 
 
 // set Username in Chatwindow
-const getUser2 = async()=>{
+const getUser2 = async(event)=>{
 
-  /*var reqUser = document.getElementById('uname').value;
+  reqUser = event.target.id;
   console.log(reqUser);
   try{
     const response = await fetch(`/users/${reqUser}`,{
@@ -204,11 +204,11 @@ const getUser2 = async()=>{
     }
     result = await response.json()
     console.log(result);
+    document.getElementById("chat_header_name").innerHTML = result["user_id"];
 
   } catch(err) {
     console.log(err);
-  }*/
-  document.getElementById("chat_header_name").innerHTML = "test";
+  }
 }
 
 
