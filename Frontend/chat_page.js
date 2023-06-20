@@ -119,6 +119,7 @@ const getChats = async()=>{
     for(let i = 0; i<result.length; i++){
       let div = document.createElement('div');
       div.addEventListener("click", getMessages);
+      div.addEventListener("click", getUser2);
       let div2 = document.createElement('div');
 
 
@@ -183,6 +184,33 @@ const getUser = async()=>{
   }
 }
 
+
+// set Username in Chatwindow
+const getUser2 = async()=>{
+
+  var reqUser = document.getElementById('uname').value;
+  console.log(reqUser);
+  try{
+    const response = await fetch(`/users/${reqUser}`,{
+      method: 'GET',
+      credentials: 'include',
+    });
+    if(!response.ok){
+      
+      if(response.status === 401){
+        return new Error('an error has accured');
+      }
+      throw new Error(`${response.status} ${response.statusText}`)
+    }
+    result = await response.json()
+    console.log(result);
+
+    document.getElementBy("chat_header_name").innerHTML = "test";
+
+  } catch(err) {
+    console.log(err);
+  }
+}
 
 
 
