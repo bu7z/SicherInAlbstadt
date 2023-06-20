@@ -188,8 +188,7 @@ const getUser = async()=>{
 // set Username in Chatwindow
 const getUser2 = async(event)=>{
 
-  outerDiv = event.target.innerHTML;
-  reqUser = outerDiv.innerHTML;
+  reqUser= event.target.getElementByTagName("div")[0].innerHTML;
   console.log("USERID:" + event.target.id);
   console.log(reqUser);
   try{
