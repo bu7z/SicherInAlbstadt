@@ -3,6 +3,7 @@ const rcvClass1 = "chat_bubble";
 const rcvClass2 = "chat_bubble_received";
 const sndClass1 = "chat_bubble";
 const sndClass2 = "chat_bubble_sent";
+const stamp = "13:05 26.26.2626";
 // message: userID -> someoneID; someoneID is for now a fixed variable (kind of)
 // TODO: Create more dynamic someoneID gathering
 
@@ -79,7 +80,8 @@ const getMessages = async(event)=>{
     console.log(result);
     for(let i = 0; i<result.length; i++){
       let div = document.createElement('div');
-      let div2 = document.createElement('div');
+      let msg = document.createElement('div');
+      let time = document.createElement('div');
       // adding corresponding classNames
       if (result[i]["sender_id"] === sndID){
         div.classList.add(sndClass1);
@@ -89,9 +91,12 @@ const getMessages = async(event)=>{
         div.classList.add(rcvClass2);
       }
       // finalizing the chat-bubble content and position
-      div2.innerHTML = result[i]["text"];
+      time.classList.add('stamp')
+      msg.innerHTML = result[i]["text"];
+      time.innerHTML = stamp; // hardcoded make dynamic sometime
       document.getElementById('chat_main').appendChild(div);
-      div.appendChild(div2);
+      div.appendChild(msg);
+      msg.appendChild(time);
       autoscroll();
     }
 
@@ -122,7 +127,7 @@ const getChats = async()=>{
       div.addEventListener("click", getMessages);
       div.addEventListener("click", getUser2);
       div.addEventListener("click", colorize_active_chat);
-      let div2 = document.createElement('div');
+      let msg = document.createElement('div');
 
 
       // adding corresponding classNames
@@ -130,9 +135,9 @@ const getChats = async()=>{
       var receiver = result[i]["user_id"]
       div.setAttribute('id',receiver);
 
-      div2.innerHTML = result[i]["username"];
+      msg.innerHTML = result[i]["username"];
       document.getElementById('chat_list').appendChild(div);
-      div.appendChild(div2);
+      div.appendChild(msg);
 
       
     }
@@ -166,16 +171,16 @@ const getUser = async()=>{
       console.log()
 
       let div = document.createElement('div');
-      let div2 = document.createElement('div');
+      let msg = document.createElement('div');
       // adding corresponding classNames
 
       div.classList.add("chat_list_element");
       var receiver = result[i]["user_id"]
       div.setAttribute('id',receiver);
 
-      div2.innerHTML = result[i]["username"];
+      msg.innerHTML = result[i]["username"];
       document.getElementById('chat_list').appendChild(div);
-      div.appendChild(div2);
+      div.appendChild(msg);
 
       div.addEventListener("click", getMessages);
       div.addEventListener("click", getUser2);
@@ -222,14 +227,14 @@ const getUser2 = async(event)=>{
   
 // sending a message
 function sendMyMessage(){
-  var msgbody = document.getElementById('chat_input_field').value
-  if(msgbody){
-    console.log(msgbody);
-    fetch("/sndMsg", {
+  var divbody = document.getElementById('chat_input_field').value
+  if(divbody){
+    console.log(divbody);
+    fetch("/snddiv", {
       method : "POST",
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        text: msgbody,
+        text: divbody,
         sender_id: sndID,
         reciever_id: rcvID
       })

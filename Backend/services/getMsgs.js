@@ -38,22 +38,22 @@ app.use(bodyParser.urlencoded({ extended: true }));
 serviceRouter.get('/messages/:idSnd/:idRcv', (req, res) => {
 	
 	var token = jwt.decode(req.cookies["jwt"]);
-	var userID = token["user_id"]
+	var userID = token["user_id"];
 	var rcvID = req.params.idRcv;
 			sql = `SELECT * FROM messages where (sender_id = ${userID} AND receiver_id = ${rcvID} ) OR (${rcvID} = sender_id AND ${userID} = receiver_id)`;
 	
 			dbConn.all(sql,(err,rows) => {
 				if(rows){
-					sql = 'UPDATE messages SET flag_seen = 1 WHERE msg_id = ? AND receiver_id = ?'
+					sql = 'UPDATE messages SET flag_seen = 1 WHERE msg_id = ? AND receiver_id = ?';
 					rows.forEach(row =>{
-						dbConn.all(sql,[row["msg_id"], userID])
+						dbConn.all(sql,[row["msg_id"], userID]);
 					})
 
-					res.status(200).json(rows)
-					console.log("chat messages send")
-					return
+					res.status(200).json(rows);
+					console.log("chat messages send");
+					return;
 				}else{
-					console.log("no new messages")
+					console.log("no new messages");
 					//TODO: something should happen here
 				}
 				if(err){

@@ -264,10 +264,19 @@ footer {
   align-items: center;
 }
 
+/* Styling timestamp*/
+.stamp {
+  font-size: 0.55vw;
+  white-space: nowrap;
+  align-items: left;
+}
+
+
 
 dialog:not([open]) {
   display: none;
 }
+
 
 /* Styling der geöffneten Popup-Box */
 dialog[open] { 
