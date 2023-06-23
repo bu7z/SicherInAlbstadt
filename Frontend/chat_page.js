@@ -26,6 +26,7 @@ function autoscroll() {
   element_chat_window.scrollTop = element_chat_window.scrollHeight;
 }
 
+// ??? why do we have this function two times ???
 // send message button
 function click_button(element) {
   // create inner and outer div and add to chat window
@@ -348,3 +349,7 @@ document.getElementById("header_chat").addEventListener("click", () => {
 document.getElementById("abbruch").addEventListener("click", () => {
   document.getElementById("dialog").close();
 });
+
+function colorize_active_chat(event) {
+  event.target.style.backgroundColor = "red";
+}
