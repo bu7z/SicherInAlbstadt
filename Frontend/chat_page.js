@@ -121,6 +121,7 @@ const getChats = async()=>{
       let div = document.createElement('div');
       div.addEventListener("click", getMessages);
       div.addEventListener("click", getUser2);
+      div.addEventListener("click", colorize_active_chat);
       let div2 = document.createElement('div');
 
 
@@ -178,6 +179,7 @@ const getUser = async()=>{
 
       div.addEventListener("click", getMessages);
       div.addEventListener("click", getUser2);
+      div.addEventListener("click", colorize_active_chat);
     }
 
   } catch(err) {
