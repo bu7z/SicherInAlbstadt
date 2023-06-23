@@ -354,4 +354,7 @@ document.getElementById("abbruch").addEventListener("click", () => {
 
 function colorize_active_chat(event) {
   event.target.style.backgroundColor = "red";
+  document.getElementsByClassName("chat_list_element").forEach(element => {
+    element.style.backgroundColor = "none";
+  });
 }
